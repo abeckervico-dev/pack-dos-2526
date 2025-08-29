@@ -301,6 +301,27 @@ app.get('/', (c) => {
                         <!-- Turitop Widget Embed -->
                         <div class="load-turitop" data-service="P2" data-lang="es" data-embed="box"></div>
                         
+                        <!-- Fallback iframe si el widget no carga -->
+                        <noscript>
+                            <iframe src="https://app.turitop.com/booking/box/H407/P2/es/" 
+                                    width="100%" 
+                                    height="600" 
+                                    frameborder="0" 
+                                    style="border: none; margin-top: 20px;">
+                            </iframe>
+                        </noscript>
+                        
+                        <!-- Alternative Booking Button -->
+                        <div class="mt-4 text-center">
+                            <p class="text-sm text-gray-600 mb-2">¿Problemas con el calendario?</p>
+                            <a href="https://app.turitop.com/booking/box/H407/P2/es/" 
+                               target="_blank" 
+                               class="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Abrir Sistema de Reservas
+                            </a>
+                        </div>
+                        
                         <!-- Trust Badges -->
                         <div class="mt-6 pt-6 border-t border-gray-200">
                             <div class="flex justify-around items-center">
