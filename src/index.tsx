@@ -77,7 +77,7 @@ app.get('/', (c) => {
     <!-- Custom Styles -->
     <style>
       .hero-gradient {
-        background: linear-gradient(135deg, rgba(74, 144, 226, 0.4) 0%, rgba(47, 82, 51, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.4) 100%);
       }
       
       .glass-effect {
@@ -109,15 +109,25 @@ app.get('/', (c) => {
       /* Hero parallax effect */
       .hero-image-container {
         will-change: transform;
-        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: scale(1.05);
       }
       
       /* Better image quality */
       .hero-image-container img {
-        image-rendering: crisp-edges;
-        image-rendering: -moz-crisp-edges;
         image-rendering: -webkit-optimize-contrast;
-        -ms-interpolation-mode: nearest-neighbor;
+        image-rendering: crisp-edges;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        min-height: 100vh;
+        width: auto;
+        min-width: 100%;
+      }
+      
+      @media (max-width: 768px) {
+        .hero-image-container img {
+          object-position: center center;
+        }
       }
       
       /* Video optimization styles */
@@ -152,9 +162,9 @@ app.get('/', (c) => {
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-2">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/b853d488d2a96f41f8cf1862b6a0c890" 
-                         alt="Packrafting El Chaltén Logo" 
-                         class="h-10 w-auto">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/b318b0865758a4172d61ba8b693d8e41" 
+                         alt="Hiking Tour Packrafting Logo" 
+                         class="h-12 w-auto"
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-6">
@@ -208,28 +218,34 @@ app.get('/', (c) => {
     </nav>
     
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Parallax Background -->
         <div class="absolute inset-0 z-0" id="hero-bg">
             <div class="hero-gradient absolute inset-0 z-10"></div>
-            <div class="hero-image-container absolute inset-0 scale-110">
-                <img src="https://page.gensparksite.com/v1/base64_upload/ba96291671d45829c35ff154278574da" 
-                     alt="Packrafting Patagonia con vista al Fitz Roy" 
+            <div class="hero-image-container absolute inset-0">
+                <img src="https://page.gensparksite.com/v1/base64_upload/479e10d9a2e9b151dd4c319246c91303" 
+                     alt="Packrafting en el Río de las Vueltas con vista a las montañas de El Chaltén" 
                      class="w-full h-full object-cover object-center"
-                     style="transform: translateZ(0); image-rendering: -webkit-optimize-contrast;">
+                     style="transform: translateZ(0); image-rendering: crisp-edges; -webkit-backface-visibility: hidden;"
             </div>
         </div>
         
         <!-- Content -->
-        <div class="relative z-20 text-center text-white px-4 fade-in">
-            <div class="bg-black/30 backdrop-blur-sm p-8 rounded-lg inline-block">
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 drop-shadow-2xl" data-i18n="hero.title">
+        <div class="relative z-20 text-center text-white px-4 fade-in mt-20">
+            <div class="bg-black/20 backdrop-blur-sm p-8 rounded-xl max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-wider" 
+                    style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" 
+                    data-i18n="hero.title">
                     PACKRAFTING EL CHALTÉN
                 </h1>
-                <h2 class="text-2xl md:text-3xl mb-6 drop-shadow-xl" data-i18n="hero.subtitle">
+                <h2 class="text-2xl md:text-4xl mb-6 font-light" 
+                    style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);" 
+                    data-i18n="hero.subtitle">
                     Descubre la Patagonia Auténtica
                 </h2>
-                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-lg" data-i18n="hero.description">
+                <p class="text-lg md:text-2xl mb-8 max-w-3xl mx-auto" 
+                   style="text-shadow: 1px 1px 2px rgba(0,0,0,0.8);" 
+                   data-i18n="hero.description">
                     Experiencias 100% Privadas en el Río de las Vueltas
                 </p>
             </div>
@@ -987,9 +1003,9 @@ app.get('/', (c) => {
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-4 text-center">
             <div class="mb-4">
-                <img src="https://page.gensparksite.com/v1/base64_upload/b853d488d2a96f41f8cf1862b6a0c890" 
-                     alt="Packrafting El Chaltén" 
-                     class="h-16 mx-auto mb-2">
+                <img src="https://page.gensparksite.com/v1/base64_upload/b318b0865758a4172d61ba8b693d8e41" 
+                     alt="Hiking Tour Packrafting" 
+                     class="h-20 mx-auto mb-2 brightness-0 invert">
             </div>
             <p class="text-sm text-gray-400 mb-2">
                 © 2024 Packrafting El Chaltén. Todos los derechos reservados.
@@ -1147,9 +1163,10 @@ app.get('/', (c) => {
             // Parallax effect for hero image
             const heroImage = document.querySelector('.hero-image-container');
             if (heroImage && scrolled < window.innerHeight) {
-                const speed = 0.5;
+                const speed = 0.3;
                 const yPos = -(scrolled * speed);
-                heroImage.style.transform = \`translateY(\${yPos}px) scale(1.1)\`;
+                const scale = 1.05 + (scrolled * 0.0001);
+                heroImage.style.transform = \`translateY(\${yPos}px) scale(\${scale})\`;
             }
         });
         
