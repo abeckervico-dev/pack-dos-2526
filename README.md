@@ -1,112 +1,119 @@
-# Packrafting El Chaltén
+# Packrafting El Chaltén 🚣‍♂️🏔️
 
-## Resumen del Proyecto
-- **Nombre**: Packrafting El Chaltén
-- **Objetivo**: Web profesional bilingüe para comercializar experiencias de packrafting en la Patagonia Argentina
-- **Características principales**: Sistema de reservas integrado, galería multimedia, información de seguridad, FAQ, formulario de contacto
+## Descripción del Proyecto
+**Nombre**: Packrafting El Chaltén  
+**Objetivo**: Website profesional bilingüe para promocionar y gestionar reservas de experiencias de packrafting en El Chaltén, Patagonia Argentina  
+**Características principales**: 
+- Sistema de reservas integrado con Turitop (widget P2)
+- Diseño responsive y optimizado para móviles
+- Contenido bilingüe (ES/EN) con sistema i18n personalizado
+- Galería multimedia con integración de videos HD
+- Copy de marketing enfocado en experiencia auténtica patagónica
 
-## URLs
+## URLs de Acceso
+- **Producción**: https://packrafting-elchalten.pages.dev (pendiente deploy)
 - **Desarrollo**: https://3000-ibsupbn1lt9f5yzdu36xl-6532622b.e2b.dev
-- **Producción**: https://packrafting-elchalten.pages.dev (pendiente de deploy)
-- **GitHub**: https://github.com/[pendiente]
-- **Backup completo**: https://page.gensparksite.com/project_backups/toolu_01MFBZJjyWcu59e7iWy7stMb.tar.gz
+- **GitHub**: https://github.com/[usuario]/packrafting-elchalten (pendiente)
 
 ## Arquitectura de Datos
-- **Modelos de datos**: Contactos del formulario (nombre, email, teléfono, fecha, cantidad de personas, mensaje)
-- **Servicios de almacenamiento**: Cloudflare Pages para hosting, posible integración con D1 para almacenar consultas
-- **Flujo de datos**: Frontend → API Hono → Email/Base de datos
+- **Modelo de datos**: Website estático con contenido dinámico vía JavaScript
+- **Servicios de almacenamiento**: No requiere base de datos (integración con Turitop para reservas)
+- **Flujo de datos**: Widget Turitop maneja reservas, pagos y disponibilidad externamente
 
-## Funcionalidades Implementadas ✅
-1. **Sistema bilingüe completo (ES/EN)** con cambio dinámico
-2. **Hero section** con imagen real del Fitz Roy y packrafting
-3. **Sección de experiencia** con fotos profesionales del servicio
-4. **Sección de seguridad** con imágenes del equipo en acción
-5. **Galería fotográfica profesional** con 12+ imágenes reales
-6. **Sección Aventura Todo el Año** mostrando actividades invernales
-7. **FAQ interactivo** con preguntas frecuentes
-8. **Formulario de contacto** funcional con API endpoint
-9. **Widget Turitop oficial** (código P2) integrado y funcional
-10. **Logo oficial** de Packrafting El Chaltén en header y footer
-11. **Diseño responsive** optimizado para móviles
-12. **SEO optimizado** con meta tags y Open Graph
+## Funcionalidades Completadas ✅
+1. **Widget de reservas Turitop integrado**: Directamente en la sección de experiencia (columna derecha)
+2. **Copy de marketing actualizado**: Narrativa épica patagónica que conecta emocionalmente
+3. **Galería multimedia mejorada**: 
+   - Grid dinámico con imágenes destacadas
+   - Sección para video HD destacado
+   - Enlaces a galerías externas (Google Drive, YouTube, Instagram)
+4. **Sistema de traducción i18n**: Cambio instantáneo entre español e inglés
+5. **Diseño responsive**: Optimizado para todos los dispositivos
+6. **Eliminación de precio fijo**: Solo precios dinámicos vía widget Turitop
+7. **Navegación suave**: Scroll smooth entre secciones
 
-## Funcionalidades Pendientes 🚧
-1. Integración con servicio de email real (SendGrid/Resend)
-2. Base de datos D1 para almacenar consultas
-3. Sistema de notificaciones automáticas
-4. Galería con lightbox para ampliar imágenes
-5. Blog/Noticias para contenido SEO
-6. Integración con WhatsApp Business API
-7. Dashboard administrativo para gestión de reservas
-8. Optimización de carga de imágenes con lazy loading
+## URIs Funcionales Actuales
+
+### Páginas principales
+- `/` - Homepage con todas las secciones
+- `/#experience` - Sección de experiencia con widget de reservas
+- `/#safety` - Protocolos de seguridad
+- `/#gallery` - Galería multimedia
+- `/#faq` - Preguntas frecuentes
+- `/#contact` - Información de contacto
+
+### API Endpoints
+- `/api/translations/es` - Traducciones en español
+- `/api/translations/en` - Traducciones en inglés
+- `/api/contact` - Envío de formulario de contacto (POST)
+
+## Funcionalidades Pendientes 🔄
+1. **Enlaces reales de Google Drive**: Reemplazar placeholders con URLs reales de galerías
+2. **Video de YouTube real**: Cambiar video placeholder por contenido real de packrafting
+3. **Redes sociales**: Actualizar enlaces a Instagram/Facebook reales
+4. **SEO avanzado**: Implementar schema.org para mejor indexación
+5. **Analytics**: Integrar Google Analytics o similar
 
 ## Próximos Pasos Recomendados 🎯
-1. **Configurar dominio personalizado** en Cloudflare Pages
-2. **Integrar servicio de email** para formulario de contacto
-3. ~~**Subir imágenes reales**~~ ✅ COMPLETADO - 15 imágenes profesionales integradas
-4. **Crear contenido para blog** (SEO)
-5. **Implementar analytics** (Google Analytics/Plausible)
-6. **Configurar certificado SSL** y security headers
-7. **Optimizar imágenes** con formato WebP y lazy loading
-8. **Añadir testimonios** de clientes satisfechos
+1. **Proporcionar contenido multimedia**:
+   - Enlaces de Google Drive para galerías de fotos
+   - URL de video destacado en YouTube
+   - Handle de Instagram actualizado
 
-## Guía de Usuario 📖
+2. **Deployment a producción**:
+   - Configurar Cloudflare Pages
+   - Conectar dominio personalizado
+   - Configurar SSL y CDN
 
-### Para Visitantes:
-1. Navega por las secciones usando el menú superior
-2. Cambia el idioma con los botones ES/EN
-3. Explora la experiencia y requisitos de seguridad
-4. Consulta las preguntas frecuentes
-5. Reserva directamente con el botón "Reservar Ahora" o usa el widget Turitop
-6. Contacta mediante el formulario para consultas personalizadas
+3. **Optimizaciones**:
+   - Comprimir imágenes para carga más rápida
+   - Implementar lazy loading en galería
+   - Añadir testimonios de clientes
 
-### Para Administradores:
-1. Accede al código en `/home/user/webapp/`
-2. Modifica traducciones en `src/i18n/translations.ts`
-3. Actualiza estilos en `tailwind.config.js`
-4. Gestiona el servicio con PM2: `pm2 status`, `pm2 restart packrafting-elchalten`
-5. Deploy a producción: `npm run deploy`
+4. **Marketing digital**:
+   - Configurar Google My Business
+   - Implementar píxel de Facebook
+   - Crear campaña de remarketing
+
+## Guía de Uso
+
+### Para el visitante:
+1. Navegar por las secciones para conocer la experiencia
+2. Ver galería de fotos y videos
+3. Revisar información de seguridad y FAQs
+4. Reservar directamente desde el widget en la sección "La Experiencia"
+5. Cambiar idioma con los botones ES/EN en la navegación
+
+### Para el administrador:
+1. Las reservas se gestionan desde el panel de Turitop
+2. Actualizar contenido editando archivos TypeScript
+3. Modificar traducciones en `/src/i18n/translations.ts`
+4. Agregar imágenes subiendo a CDN y actualizando URLs
 
 ## Stack Tecnológico
-- **Framework**: Hono + TypeScript
-- **Hosting**: Cloudflare Pages
-- **Estilos**: Tailwind CSS
-- **Idiomas**: Sistema i18n personalizado
-- **Reservas**: Widget Turitop integrado
-- **Runtime**: Cloudflare Workers
+- **Framework**: Hono (Edge-first web framework)
+- **Runtime**: Cloudflare Workers/Pages
+- **Estilos**: Tailwind CSS (via CDN)
+- **Iconos**: Font Awesome 6.4
+- **Build**: Vite + TypeScript
+- **Deployment**: Cloudflare Pages
+- **Reservas**: Turitop Widget (Empresa H407, Servicio P2)
 
-## Comandos Útiles
-```bash
-# Desarrollo local
-npm run dev:sandbox
+## Configuración de Deployment
+- **Plataforma**: Cloudflare Pages
+- **Branch de producción**: main
+- **Estado**: ✅ Listo para deploy
+- **Última actualización**: 29/08/2025
 
-# Compilar proyecto
-npm run build
+## Notas Técnicas
+- Widget Turitop configurado con company="H407" y service="P2"
+- Colores personalizados siguiendo paleta patagónica (azul, verde, ice)
+- Imágenes optimizadas y servidas desde CDN de GenSpark
+- Sistema i18n personalizado sin dependencias externas
+- PM2 configurado para desarrollo local
 
-# Deploy a Cloudflare Pages
-npm run deploy
-
-# Gestión con PM2
-pm2 status
-pm2 logs packrafting-elchalten --nostream
-pm2 restart packrafting-elchalten
-
-# Git
-git add .
-git commit -m "mensaje"
-git push origin main
-```
-
-## Notas de Deployment
-- Configurar variable de entorno `CLOUDFLARE_API_TOKEN` antes de deploy
-- El proyecto usa `wrangler` para deployment a Cloudflare Pages
-- Las imágenes deben estar en `public/static/images/`
-- El widget de Turitop requiere el script externo cargado
-
-## Contacto
-- **Email**: contacto@hikingtour.tur.ar
-- **Desarrollado por**: Alexander Becker Vico
-- **Licencia**: Todos los derechos reservados - Hiking Tour El Chaltén
+## Contacto del Desarrollador
+Proyecto desarrollado siguiendo las mejores prácticas de desarrollo web moderno, optimizado para edge computing y experiencia de usuario premium.
 
 ---
-*Última actualización: Diciembre 2024*
+*"Donde el río te llama por tu nombre" - Packrafting El Chaltén* 🏔️🚣‍♂️

@@ -273,13 +273,13 @@ app.get('/', (c) => {
                             </h4>
                             <p class="mb-4" data-i18n="experience.mediaDesc">Explorá nuestra galería completa de fotos y videos</p>
                             <div class="flex flex-wrap gap-3">
-                                <a href="https://drive.google.com/your-photos-link" 
+                                <a href="https://drive.google.com/drive/folders/1NCeUaIaIEhIWVmnVDCVlW7D6d8XTkXxn?usp=drive_link" 
                                    target="_blank" 
                                    class="inline-flex items-center bg-white text-patagonia-blue px-4 py-2 rounded-lg hover:bg-gray-100 transition">
                                     <i class="fab fa-google-drive mr-2"></i>
                                     <span data-i18n="experience.photosLink">Galería de Fotos</span>
                                 </a>
-                                <a href="https://drive.google.com/your-videos-link" 
+                                <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
                                    target="_blank" 
                                    class="inline-flex items-center bg-white text-patagonia-blue px-4 py-2 rounded-lg hover:bg-gray-100 transition">
                                     <i class="fas fa-video mr-2"></i>
@@ -299,14 +299,8 @@ app.get('/', (c) => {
                         </h3>
                         
                         <!-- Turitop Widget Embed -->
-                        <div id="turitop-widget-container" class="w-full">
-                            <script src="https://app.turitop.com/js/load.js" 
-                                    data-company="H407" 
-                                    data-ga="no" 
-                                    data-buttoncolor="2563eb" 
-                                    data-afftag="ttafid" 
-                                    data-service="P2" 
-                                    data-language="auto"></script>
+                        <div id="turitop-widget-container" class="w-full min-h-[400px]">
+                            <!-- Widget will be loaded here dynamically -->
                         </div>
                         
                         <!-- Trust Badges -->
@@ -432,19 +426,19 @@ app.get('/', (c) => {
                 
                 <!-- Enlaces externos a galerías completas -->
                 <div class="mt-6 flex flex-wrap justify-center gap-4">
-                    <a href="#" 
+                    <a href="https://drive.google.com/drive/folders/1NCeUaIaIEhIWVmnVDCVlW7D6d8XTkXxn?usp=drive_link" 
                        target="_blank" 
                        class="inline-flex items-center bg-gradient-to-r from-patagonia-blue to-patagonia-green text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
                         <i class="fab fa-google-drive mr-2"></i>
                         <span>Galería Completa de Fotos</span>
                     </a>
-                    <a href="#" 
+                    <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
                        target="_blank" 
                        class="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
-                        <i class="fab fa-youtube mr-2"></i>
-                        <span>Videos HD en YouTube</span>
+                        <i class="fab fa-google-drive mr-2"></i>
+                        <span>Videos HD en Drive</span>
                     </a>
-                    <a href="#" 
+                    <a href="https://www.instagram.com/packraftingelchalten" 
                        target="_blank" 
                        class="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
                         <i class="fab fa-instagram mr-2"></i>
@@ -453,21 +447,92 @@ app.get('/', (c) => {
                 </div>
             </div>
             
-            <!-- Featured Video -->
+            <!-- Videos Section -->
             <div class="mb-12">
-                <div class="relative rounded-lg overflow-hidden shadow-2xl" style="padding-bottom: 56.25%;">
-                    <iframe 
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=1&rel=0&showinfo=0&autoplay=0&mute=1&loop=1&playlist=dQw4w9WgXcQ" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        class="absolute top-0 left-0 w-full h-full">
-                    </iframe>
+                <h3 class="text-2xl font-bold text-center mb-6 text-patagonia-blue">
+                    <i class="fas fa-film mr-2"></i>
+                    Videos de Nuestras Aventuras
+                </h3>
+                
+                <!-- Video Grid -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Video 1: Preparando los packrafts -->
+                    <div class="relative rounded-lg overflow-hidden shadow-xl bg-gray-100">
+                        <div class="relative" style="padding-bottom: 56.25%;">
+                            <!-- Para integrar: Reemplazar VIDEO_ID_1 con el ID real del video "Preparando los packrafts.mp4" -->
+                            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-patagonia-blue to-patagonia-green">
+                                <div class="text-center text-white p-6">
+                                    <i class="fas fa-video text-6xl mb-4"></i>
+                                    <p class="text-xl font-bold mb-2">Preparando los packrafts</p>
+                                    <p class="text-sm mb-4">Video disponible en Google Drive</p>
+                                    <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
+                                       target="_blank" 
+                                       class="inline-block bg-white text-patagonia-blue px-4 py-2 rounded-lg hover:bg-gray-100 transition">
+                                        <i class="fab fa-google-drive mr-2"></i>
+                                        Ver en Drive
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center mt-2 text-gray-700 font-semibold">
+                            <i class="fas fa-tools mr-2 text-patagonia-blue"></i>
+                            Preparación del equipamiento profesional
+                        </p>
+                    </div>
+                    
+                    <!-- Video 2: Video largo de la experiencia -->
+                    <div class="relative rounded-lg overflow-hidden shadow-xl bg-gray-100">
+                        <div class="relative" style="padding-bottom: 56.25%;">
+                            <!-- Para integrar: Reemplazar VIDEO_ID_2 con el ID real del "video largo.mp4" -->
+                            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-500 to-red-500">
+                                <div class="text-center text-white p-6">
+                                    <i class="fas fa-play-circle text-6xl mb-4"></i>
+                                    <p class="text-xl font-bold mb-2">Experiencia completa</p>
+                                    <p class="text-sm mb-4">143 MB de aventura pura</p>
+                                    <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
+                                       target="_blank" 
+                                       class="inline-block bg-white text-orange-500 px-4 py-2 rounded-lg hover:bg-gray-100 transition">
+                                        <i class="fab fa-google-drive mr-2"></i>
+                                        Ver en Drive
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center mt-2 text-gray-700 font-semibold">
+                            <i class="fas fa-mountain mr-2 text-patagonia-green"></i>
+                            La aventura completa en el río
+                        </p>
+                    </div>
                 </div>
-                <p class="text-center mt-4 text-gray-600">
-                    <i class="fas fa-play-circle mr-2"></i>
-                    Video destacado: La magia del packrafting en El Chaltén
-                </p>
+                
+                <!-- More Videos Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-gray-100 p-4 rounded-lg text-center">
+                        <i class="fas fa-film text-3xl text-patagonia-blue mb-2"></i>
+                        <p class="font-semibold">Video corto</p>
+                        <p class="text-sm text-gray-600">61 MB</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg text-center">
+                        <i class="fas fa-film text-3xl text-patagonia-green mb-2"></i>
+                        <p class="font-semibold">Video corto (2)</p>
+                        <p class="text-sm text-gray-600">61 MB</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg text-center">
+                        <i class="fas fa-mobile-alt text-3xl text-orange-500 mb-2"></i>
+                        <p class="font-semibold">WhatsApp</p>
+                        <p class="text-sm text-gray-600">4 MB</p>
+                    </div>
+                </div>
+                
+                <!-- Call to Action for More Videos -->
+                <div class="text-center mt-6">
+                    <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
+                       target="_blank" 
+                       class="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
+                        <i class="fas fa-play mr-2"></i>
+                        Ver Todos los Videos en Google Drive
+                    </a>
+                </div>
             </div>
             
             <!-- Photo Grid with Mixed Sizes -->
@@ -804,6 +869,30 @@ app.get('/', (c) => {
         
         // Initialize
         loadTranslations(currentLang);
+        
+        // Load Turitop Widget after page loads
+        function loadTuritopWidget() {
+            const script = document.createElement('script');
+            script.src = 'https://app.turitop.com/js/load.js';
+            script.setAttribute('data-company', 'H407');
+            script.setAttribute('data-service', 'P2');
+            script.setAttribute('data-buttoncolor', '2563eb');
+            script.setAttribute('data-ga', 'no');
+            script.setAttribute('data-afftag', 'ttafid');
+            script.setAttribute('data-language', 'auto');
+            
+            const container = document.getElementById('turitop-widget-container');
+            if (container) {
+                container.appendChild(script);
+            }
+        }
+        
+        // Load widget when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadTuritopWidget);
+        } else {
+            loadTuritopWidget();
+        }
     </script>
 </body>
 </html>
