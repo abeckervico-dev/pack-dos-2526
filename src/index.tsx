@@ -133,11 +133,11 @@ app.get('/', (c) => {
                         <button onclick="setLanguage('en')" class="lang-btn text-sm px-2 py-1 rounded" data-lang="en">EN</button>
                     </div>
                     
-                    <button onclick="openTuritopModal()" 
-                       class="bg-patagonia-blue text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                    <a href="#experience" 
+                       class="bg-patagonia-blue text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition transform hover:scale-105 inline-block">
                         <i class="fas fa-calendar-check mr-2"></i>
                         <span data-i18n="nav.book">Reservar</span>
-                    </button>
+                    </a>
                 </div>
                 
                 <!-- Mobile menu button -->
@@ -160,10 +160,10 @@ app.get('/', (c) => {
                     <button onclick="setLanguage('es')" class="text-sm px-3 py-1 bg-gray-100 rounded">ES</button>
                     <button onclick="setLanguage('en')" class="text-sm px-3 py-1 bg-gray-100 rounded">EN</button>
                 </div>
-                <button onclick="openTuritopModal()" 
+                <a href="#experience" 
                    class="block w-full bg-patagonia-blue text-white text-center py-2 rounded-lg">
                     Reservar Ahora
-                </button>
+                </a>
             </div>
         </div>
     </nav>
@@ -191,13 +191,14 @@ app.get('/', (c) => {
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="openTuritopModal()"
+                <a href="#experience" 
                    class="px-8 py-4 bg-orange-500 text-white rounded-lg font-bold hover:bg-orange-600 transition transform hover:scale-105 shadow-xl">
                     <span data-i18n="hero.cta1">RESERVAR AHORA</span>
-                </button>
-                <a href="#experience" 
+                </a>
+                <a href="#gallery" 
                    class="px-8 py-4 border-2 border-white text-white rounded-lg font-bold hover:bg-white hover:text-patagonia-blue transition">
-                    <span data-i18n="hero.cta2">VER EXPERIENCIA</span>
+                    <i class="fas fa-images mr-2"></i>
+                    <span data-i18n="hero.cta2">VER GALERÍA</span>
                 </a>
             </div>
         </div>
@@ -216,51 +217,115 @@ app.get('/', (c) => {
                 <p class="text-xl text-gray-600" data-i18n="experience.subtitle">Una aventura única en la Patagonia argentina</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Left Column: Experience Details -->
                 <div>
                     <p class="text-lg text-gray-700 mb-6" data-i18n="experience.description">
-                        Te invitamos a unirte a una aventura emocionante que te permitirá navegar en packraft 
-                        por el río de las Vueltas, disfrutando de impresionantes vistas panorámicas de las 
-                        montañas de El Chaltén.
+                        Imaginate remando por aguas cristalinas mientras el viento patagónico acaricia tu rostro 
+                        y el Fitz Roy se alza majestuoso en el horizonte. No es solo una actividad, es tu conexión 
+                        íntima con la Patagonia salvaje.
                     </p>
                     
                     <div class="space-y-6">
                         <div>
                             <h3 class="text-xl font-semibold mb-3 text-patagonia-blue">
                                 <i class="fas fa-check-circle mr-2"></i>
-                                Lo que incluye:
+                                <span data-i18n="experience.includes">Tu aventura incluye:</span>
                             </h3>
                             <ul class="space-y-2 text-gray-700">
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i>Todo el equipo técnico necesario</li>
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i>Guía certificado UIMLA bilingüe</li>
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i>Seguro de accidentes personales</li>
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i>Snack en Camping Río de las Vueltas</li>
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i>Briefing de seguridad</li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include1">Packraft individual de expedición</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include2">Equipo completo de seguridad certificado</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include3">Guía profesional UIMLA con experiencia local</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include4">Snack energético patagónico</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include5">Fotografías profesionales de tu aventura</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include6">Transporte desde El Chaltén</span></li>
                             </ul>
                         </div>
                         
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-patagonia-ice p-4 rounded-lg">
                                 <i class="fas fa-clock text-patagonia-blue text-2xl mb-2"></i>
-                                <h4 class="font-semibold">Duración</h4>
-                                <p class="text-sm">4 horas aprox.</p>
+                                <h4 class="font-semibold" data-i18n="experience.duration">Duración</h4>
+                                <p class="text-sm" data-i18n="experience.durationValue">4 horas de pura aventura</p>
                             </div>
                             <div class="bg-patagonia-ice p-4 rounded-lg">
                                 <i class="fas fa-users text-patagonia-blue text-2xl mb-2"></i>
-                                <h4 class="font-semibold">Grupos</h4>
-                                <p class="text-sm">2-8 personas</p>
+                                <h4 class="font-semibold" data-i18n="experience.groups">Grupos</h4>
+                                <p class="text-sm" data-i18n="experience.groupsValue">2-8 aventureros</p>
+                            </div>
+                            <div class="bg-patagonia-ice p-4 rounded-lg">
+                                <i class="fas fa-calendar text-patagonia-blue text-2xl mb-2"></i>
+                                <h4 class="font-semibold" data-i18n="experience.season">Temporada</h4>
+                                <p class="text-sm" data-i18n="experience.seasonValue">Octubre - Abril</p>
+                            </div>
+                            <div class="bg-patagonia-ice p-4 rounded-lg">
+                                <i class="fas fa-signal text-patagonia-blue text-2xl mb-2"></i>
+                                <h4 class="font-semibold" data-i18n="experience.level">Nivel</h4>
+                                <p class="text-sm" data-i18n="experience.levelValue">Principiante+</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Call to Action for Media -->
+                        <div class="bg-gradient-to-r from-patagonia-blue to-patagonia-green p-6 rounded-lg text-white">
+                            <h4 class="text-xl font-bold mb-2">
+                                <i class="fas fa-images mr-2"></i>
+                                <span data-i18n="experience.mediaTitle">¿Querés ver más?</span>
+                            </h4>
+                            <p class="mb-4" data-i18n="experience.mediaDesc">Explorá nuestra galería completa de fotos y videos</p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://drive.google.com/your-photos-link" 
+                                   target="_blank" 
+                                   class="inline-flex items-center bg-white text-patagonia-blue px-4 py-2 rounded-lg hover:bg-gray-100 transition">
+                                    <i class="fab fa-google-drive mr-2"></i>
+                                    <span data-i18n="experience.photosLink">Galería de Fotos</span>
+                                </a>
+                                <a href="https://drive.google.com/your-videos-link" 
+                                   target="_blank" 
+                                   class="inline-flex items-center bg-white text-patagonia-blue px-4 py-2 rounded-lg hover:bg-gray-100 transition">
+                                    <i class="fas fa-video mr-2"></i>
+                                    <span data-i18n="experience.videosLink">Videos HD</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="relative">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/9f1d6f5ee82edf993378b0d2c5e92e38" 
-                         alt="Packrafting Experience - Vista panorámica" 
-                         class="rounded-lg shadow-xl">
-                    <div class="absolute -bottom-6 -left-6 bg-orange-500 text-white p-4 rounded-lg shadow-lg">
-                        <p class="font-bold text-lg">USD 150</p>
-                        <p class="text-sm">por persona</p>
+                <!-- Right Column: Turitop Widget -->
+                <div class="lg:sticky lg:top-24">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-xl">
+                        <h3 class="text-2xl font-bold text-center mb-6 text-patagonia-blue">
+                            <i class="fas fa-calendar-check mr-2"></i>
+                            <span data-i18n="experience.bookingTitle">Reservá tu aventura</span>
+                        </h3>
+                        
+                        <!-- Turitop Widget Embed -->
+                        <div id="turitop-widget-container" class="w-full">
+                            <script src="https://app.turitop.com/js/load.js" 
+                                    data-company="H407" 
+                                    data-ga="no" 
+                                    data-buttoncolor="2563eb" 
+                                    data-afftag="ttafid" 
+                                    data-service="P2" 
+                                    data-language="auto"></script>
+                        </div>
+                        
+                        <!-- Trust Badges -->
+                        <div class="mt-6 pt-6 border-t border-gray-200">
+                            <div class="flex justify-around items-center">
+                                <div class="text-center">
+                                    <i class="fas fa-shield-alt text-2xl text-green-600 mb-1"></i>
+                                    <p class="text-xs text-gray-600" data-i18n="experience.secure">Pago Seguro</p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-undo text-2xl text-blue-600 mb-1"></i>
+                                    <p class="text-xs text-gray-600" data-i18n="experience.cancellation">Cancelación Flexible</p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-headset text-2xl text-purple-600 mb-1"></i>
+                                    <p class="text-xs text-gray-600" data-i18n="experience.support">Soporte 24/7</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -364,49 +429,118 @@ app.get('/', (c) => {
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-800 mb-4" data-i18n="gallery.title">Galería de Aventuras</h2>
                 <p class="text-xl text-gray-600" data-i18n="gallery.subtitle">Momentos inolvidables en la Patagonia</p>
+                
+                <!-- Enlaces externos a galerías completas -->
+                <div class="mt-6 flex flex-wrap justify-center gap-4">
+                    <a href="#" 
+                       target="_blank" 
+                       class="inline-flex items-center bg-gradient-to-r from-patagonia-blue to-patagonia-green text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
+                        <i class="fab fa-google-drive mr-2"></i>
+                        <span>Galería Completa de Fotos</span>
+                    </a>
+                    <a href="#" 
+                       target="_blank" 
+                       class="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
+                        <i class="fab fa-youtube mr-2"></i>
+                        <span>Videos HD en YouTube</span>
+                    </a>
+                    <a href="#" 
+                       target="_blank" 
+                       class="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
+                        <i class="fab fa-instagram mr-2"></i>
+                        <span>@packraftingelchalten</span>
+                    </a>
+                </div>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc" 
-                         alt="Packrafting en acción" 
-                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+            <!-- Featured Video -->
+            <div class="mb-12">
+                <div class="relative rounded-lg overflow-hidden shadow-2xl" style="padding-bottom: 56.25%;">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=1&rel=0&showinfo=0&autoplay=0&mute=1&loop=1&playlist=dQw4w9WgXcQ" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="absolute top-0 left-0 w-full h-full">
+                    </iframe>
                 </div>
+                <p class="text-center mt-4 text-gray-600">
+                    <i class="fas fa-play-circle mr-2"></i>
+                    Video destacado: La magia del packrafting en El Chaltén
+                </p>
+            </div>
+            
+            <!-- Photo Grid with Mixed Sizes -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Large featured image -->
+                <div class="col-span-2 row-span-2 relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc" 
+                         alt="Packrafting con vista al Fitz Roy" 
+                         class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <p class="text-white font-bold">Vista épica del Fitz Roy</p>
+                    </div>
+                </div>
+                
+                <!-- Regular images -->
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
                     <img src="https://page.gensparksite.com/v1/base64_upload/afce1c4d34ff63a51d7751d8b7c72f48" 
                          alt="Preparación del grupo" 
-                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                 </div>
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
                     <img src="https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce" 
                          alt="Grupo con packrafts" 
-                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                 </div>
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
                     <img src="https://page.gensparksite.com/v1/base64_upload/a0af2b4a61487b9f5c50f8dbb1956a4c" 
                          alt="Soledad y naturaleza" 
-                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                 </div>
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
                     <img src="https://page.gensparksite.com/v1/base64_upload/901b16630c289572a34bc012a86d0fd4" 
-                         alt="Navegando aguas tranquilas" 
-                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                         alt="Navegando aguas cristalinas" 
+                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                 </div>
-                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                
+                <!-- Horizontal featured image -->
+                <div class="col-span-2 relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
                     <img src="https://page.gensparksite.com/v1/base64_upload/4e16fb0b0de94b3ee796b135a5ee5167" 
-                         alt="Preparación del packraft" 
-                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                         alt="Equipo profesional" 
+                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <p class="text-white font-bold">Equipamiento de primera calidad</p>
+                    </div>
                 </div>
+                
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
                     <img src="https://page.gensparksite.com/v1/base64_upload/8e63c98b00dbaafcd37c1a57b5668a09" 
-                         alt="Listo para la aventura" 
-                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                         alt="Aventura lista" 
+                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                 </div>
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
                     <img src="https://page.gensparksite.com/v1/base64_upload/51f859f74b373cbcb7292b27eb87939c" 
                          alt="Trekking con equipos" 
-                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                 </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="mt-12 text-center bg-gradient-to-r from-patagonia-blue to-patagonia-green p-8 rounded-lg">
+                <h3 class="text-2xl font-bold text-white mb-4">
+                    <i class="fas fa-camera mr-2"></i>
+                    ¿Querés aparecer en nuestra galería?
+                </h3>
+                <p class="text-white mb-6">
+                    Cada aventura es única y tus fotos podrían inspirar a otros aventureros.
+                    ¡Compartimos las mejores capturas en nuestras redes!
+                </p>
+                <a href="#experience" 
+                   class="inline-block bg-white text-patagonia-blue px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition transform hover:scale-105">
+                    <i class="fas fa-rocket mr-2"></i>
+                    VIVI TU AVENTURA
+                </a>
             </div>
         </div>
     </section>
@@ -481,19 +615,17 @@ app.get('/', (c) => {
                         </div>
                     </div>
                     
-                    <div>
-                        <h3 class="text-xl font-semibold mb-4">Reserva directa</h3>
-                        <p class="mb-4">Reserva tu experiencia de forma segura a través de nuestra plataforma:</p>
-                        <button onclick="openTuritopModal()"
-                           class="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
-                            <i class="fas fa-calendar-alt mr-2"></i>
-                            ABRIR CALENDARIO DE RESERVAS
-                        </button>
-                    </div>
-                    
-                    <!-- Widget Turitop Oficial -->
-                    <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                        <div class="load-turitop" data-service="P2" data-lang="es" data-embed="box"></div>
+                    <div class="bg-gradient-to-r from-patagonia-blue to-patagonia-green p-6 rounded-lg text-white">
+                        <h3 class="text-xl font-semibold mb-4">
+                            <i class="fas fa-calendar-check mr-2"></i>
+                            Reservá tu experiencia
+                        </h3>
+                        <p class="mb-4">Las reservas se realizan directamente en la sección "La Experiencia" donde encontrarás el calendario completo con disponibilidad en tiempo real.</p>
+                        <a href="#experience" 
+                           class="inline-block bg-white text-patagonia-blue px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                            <i class="fas fa-arrow-up mr-2"></i>
+                            IR A RESERVAR
+                        </a>
                     </div>
                 </div>
             </div>
@@ -517,11 +649,7 @@ app.get('/', (c) => {
         </div>
     </footer>
     
-    <!-- Turitop Widget Script (Global) -->
-    <script id="js-turitop" src="https://app.turitop.com/js/load-turitop.min.js" 
-            data-company="H407" 
-            data-buttoncolor="green" 
-            data-afftag="ttafid"></script>
+    <!-- Removed old Turitop script as widget is now embedded directly -->
     
     <!-- Scripts -->
     <script>
@@ -663,17 +791,16 @@ app.get('/', (c) => {
             }
         });
         
-        // Function to open Turitop modal
-        function openTuritopModal() {
-            // Check if Turitop widget has created a button
-            const turitopButtons = document.querySelectorAll('.turitop-button, .turitop-box-button, button[data-turitop]');
-            if (turitopButtons.length > 0) {
-                turitopButtons[0].click();
-            } else {
-                // Fallback to direct link with correct service ID
-                window.open('https://app.turitop.com/booking/box/H407/P2/' + currentLang + '/', '_blank');
-            }
-        }
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
         
         // Initialize
         loadTranslations(currentLang);

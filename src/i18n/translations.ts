@@ -11,10 +11,10 @@ export const translations = {
     },
     hero: {
       title: 'PACKRAFTING EL CHALTÉN',
-      subtitle: 'Descubre la Patagonia Auténtica',
-      description: 'Experiencias 100% Privadas en el Río de las Vueltas',
+      subtitle: 'Donde el río te llama por tu nombre',
+      description: 'El Fitz Roy te observa mientras remas hacia tu próxima gran historia',
       cta1: 'RESERVAR AHORA',
-      cta2: 'VER EXPERIENCIA',
+      cta2: 'VER GALERÍA',
     },
     experience: {
       title: 'La Experiencia',
@@ -155,10 +155,10 @@ export const translations = {
     },
     hero: {
       title: 'PACKRAFTING EL CHALTÉN',
-      subtitle: 'Discover Authentic Patagonia',
-      description: '100% Private Experiences on Río de las Vueltas',
+      subtitle: 'Where the river calls your name',
+      description: 'Fitz Roy watches as you paddle into your next great story',
       cta1: 'BOOK NOW',
-      cta2: 'VIEW EXPERIENCE',
+      cta2: 'VIEW GALLERY',
     },
     experience: {
       title: 'The Experience',
@@ -257,8 +257,8 @@ export const translations = {
       ]
     },
     contact: {
-      title: 'Contact & Bookings',
-      subtitle: 'We\'re here to make your adventure happen',
+      title: 'Ready to write your Patagonian story?',
+      subtitle: 'The best moments of your life are just a paddle stroke away',
       form: {
         name: 'Full name',
         email: 'Email address',
