@@ -105,6 +105,31 @@ app.get('/', (c) => {
         background-repeat: no-repeat;
         background-size: cover;
       }
+      
+      /* Video optimization styles */
+      video {
+        object-fit: cover;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: transform;
+      }
+      
+      video::-webkit-media-controls {
+        display: none !important;
+      }
+      
+      .video-container {
+        position: relative;
+        overflow: hidden;
+        background: #000;
+      }
+      
+      /* Ensure smooth playback */
+      @media (prefers-reduced-motion: reduce) {
+        video {
+          display: none;
+        }
+      }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -445,25 +470,19 @@ app.get('/', (c) => {
                 <h2 class="text-4xl font-bold text-gray-800 mb-4" data-i18n="gallery.title">Galería de Aventuras</h2>
                 <p class="text-xl text-gray-600" data-i18n="gallery.subtitle">Momentos inolvidables en la Patagonia</p>
                 
-                <!-- Enlaces externos a galerías completas -->
+                <!-- Enlaces externos -->
                 <div class="mt-6 flex flex-wrap justify-center gap-4">
-                    <a href="https://drive.google.com/drive/folders/1NCeUaIaIEhIWVmnVDCVlW7D6d8XTkXxn?usp=drive_link" 
-                       target="_blank" 
-                       class="inline-flex items-center bg-gradient-to-r from-patagonia-blue to-patagonia-green text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
-                        <i class="fab fa-google-drive mr-2"></i>
-                        <span>Galería Completa de Fotos</span>
-                    </a>
-                    <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
-                       target="_blank" 
-                       class="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
-                        <i class="fab fa-google-drive mr-2"></i>
-                        <span>Videos HD en Drive</span>
-                    </a>
                     <a href="https://www.instagram.com/packraftingelchalten" 
                        target="_blank" 
                        class="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
                         <i class="fab fa-instagram mr-2"></i>
                         <span>@packraftingelchalten</span>
+                    </a>
+                    <a href="https://wa.me/5492966XXXXXX" 
+                       target="_blank" 
+                       class="inline-flex items-center bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        <span>WhatsApp Directo</span>
                     </a>
                 </div>
             </div>
@@ -472,87 +491,76 @@ app.get('/', (c) => {
             <div class="mb-12">
                 <h3 class="text-2xl font-bold text-center mb-6 text-patagonia-blue">
                     <i class="fas fa-film mr-2"></i>
-                    Videos de Nuestras Aventuras
+                    Viví la Experiencia Packrafting
                 </h3>
                 
-                <!-- Video Grid -->
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Video 1: Preparando los packrafts -->
-                    <div class="relative rounded-lg overflow-hidden shadow-xl bg-gray-100">
-                        <div class="relative" style="padding-bottom: 56.25%;">
-                            <!-- Para integrar: Reemplazar VIDEO_ID_1 con el ID real del video "Preparando los packrafts.mp4" -->
-                            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-patagonia-blue to-patagonia-green">
-                                <div class="text-center text-white p-6">
-                                    <i class="fas fa-video text-6xl mb-4"></i>
-                                    <p class="text-xl font-bold mb-2">Preparando los packrafts</p>
-                                    <p class="text-sm mb-4">Video disponible en Google Drive</p>
-                                    <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
-                                       target="_blank" 
-                                       class="inline-block bg-white text-patagonia-blue px-4 py-2 rounded-lg hover:bg-gray-100 transition">
-                                        <i class="fab fa-google-drive mr-2"></i>
-                                        Ver en Drive
-                                    </a>
-                                </div>
-                            </div>
+                <!-- Main Video Hero -->
+                <div class="mb-8">
+                    <div class="relative rounded-lg overflow-hidden shadow-2xl">
+                        <video 
+                            class="w-full h-auto"
+                            autoplay 
+                            muted 
+                            loop 
+                            playsinline
+                            poster="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc">
+                            <source src="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/129abc05-0761-404e-bd50-12aee41f91c4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                            <h4 class="text-white text-2xl font-bold mb-2">
+                                <i class="fas fa-water mr-2"></i>
+                                Navegando el Río de las Vueltas
+                            </h4>
+                            <p class="text-white/90">Experiencia completa de packrafting con vistas al Fitz Roy</p>
                         </div>
-                        <p class="text-center mt-2 text-gray-700 font-semibold">
-                            <i class="fas fa-tools mr-2 text-patagonia-blue"></i>
-                            Preparación del equipamiento profesional
-                        </p>
+                    </div>
+                </div>
+                
+                <!-- Secondary Videos Grid -->
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <!-- Video WhatsApp -->
+                    <div class="relative rounded-lg overflow-hidden shadow-xl group">
+                        <video 
+                            class="w-full h-64 object-cover group-hover:scale-105 transition duration-500"
+                            autoplay 
+                            muted 
+                            loop 
+                            playsinline>
+                            <source src="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/0a778588-5631-4b3c-b635-8c8bb61eeb79" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                            <p class="text-white font-semibold">
+                                <i class="fas fa-route mr-2"></i>
+                                Momentos únicos
+                            </p>
+                        </div>
                     </div>
                     
-                    <!-- Video 2: Video largo de la experiencia -->
-                    <div class="relative rounded-lg overflow-hidden shadow-xl bg-gray-100">
-                        <div class="relative" style="padding-bottom: 56.25%;">
-                            <!-- Para integrar: Reemplazar VIDEO_ID_2 con el ID real del "video largo.mp4" -->
-                            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-500 to-red-500">
-                                <div class="text-center text-white p-6">
-                                    <i class="fas fa-play-circle text-6xl mb-4"></i>
-                                    <p class="text-xl font-bold mb-2">Experiencia completa</p>
-                                    <p class="text-sm mb-4">143 MB de aventura pura</p>
-                                    <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
-                                       target="_blank" 
-                                       class="inline-block bg-white text-orange-500 px-4 py-2 rounded-lg hover:bg-gray-100 transition">
-                                        <i class="fab fa-google-drive mr-2"></i>
-                                        Ver en Drive
-                                    </a>
-                                </div>
+                    <!-- Placeholder for more videos -->
+                    <div class="relative rounded-lg overflow-hidden shadow-xl bg-gradient-to-br from-patagonia-blue to-patagonia-green">
+                        <div class="h-64 flex items-center justify-center">
+                            <div class="text-center text-white p-6">
+                                <i class="fas fa-play-circle text-5xl mb-3"></i>
+                                <p class="font-bold">Más aventuras</p>
+                                <p class="text-sm">Próximamente</p>
                             </div>
                         </div>
-                        <p class="text-center mt-2 text-gray-700 font-semibold">
-                            <i class="fas fa-mountain mr-2 text-patagonia-green"></i>
-                            La aventura completa en el río
-                        </p>
                     </div>
-                </div>
-                
-                <!-- More Videos Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
-                    <div class="bg-gray-100 p-4 rounded-lg text-center">
-                        <i class="fas fa-film text-3xl text-patagonia-blue mb-2"></i>
-                        <p class="font-semibold">Video corto</p>
-                        <p class="text-sm text-gray-600">61 MB</p>
+                    
+                    <!-- Call to Action -->
+                    <div class="relative rounded-lg overflow-hidden shadow-xl bg-gradient-to-br from-orange-500 to-red-500">
+                        <div class="h-64 flex items-center justify-center">
+                            <div class="text-center text-white p-6">
+                                <i class="fas fa-calendar-check text-5xl mb-3"></i>
+                                <p class="font-bold text-xl mb-2">¿Listo para tu aventura?</p>
+                                <a href="#experience" 
+                                   class="inline-block bg-white text-orange-500 px-4 py-2 rounded-lg hover:bg-gray-100 transition">
+                                    Reservar Ahora
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-gray-100 p-4 rounded-lg text-center">
-                        <i class="fas fa-film text-3xl text-patagonia-green mb-2"></i>
-                        <p class="font-semibold">Video corto (2)</p>
-                        <p class="text-sm text-gray-600">61 MB</p>
-                    </div>
-                    <div class="bg-gray-100 p-4 rounded-lg text-center">
-                        <i class="fas fa-mobile-alt text-3xl text-orange-500 mb-2"></i>
-                        <p class="font-semibold">WhatsApp</p>
-                        <p class="text-sm text-gray-600">4 MB</p>
-                    </div>
-                </div>
-                
-                <!-- Call to Action for More Videos -->
-                <div class="text-center mt-6">
-                    <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
-                       target="_blank" 
-                       class="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
-                        <i class="fas fa-play mr-2"></i>
-                        Ver Todos los Videos en Google Drive
-                    </a>
                 </div>
             </div>
             
@@ -890,6 +898,33 @@ app.get('/', (c) => {
         
         // Initialize
         loadTranslations(currentLang);
+        
+        // Ensure videos play automatically
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.muted = true;
+                video.loop = true;
+                video.playsInline = true;
+                
+                // Try to play video
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log('Auto-play prevented:', error);
+                        // Add click to play functionality as fallback
+                        video.addEventListener('click', () => {
+                            video.play();
+                        });
+                    });
+                }
+                
+                // Optimize video loading
+                video.addEventListener('loadeddata', () => {
+                    video.playbackRate = 1.0;
+                });
+            });
+        });
     </script>
     
     <!-- Turitop Global Script (footer) -->
