@@ -113,8 +113,9 @@ app.get('/', (c) => {
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-2">
-                    <i class="fas fa-water text-patagonia-blue text-2xl"></i>
-                    <span class="text-xl font-bold text-gray-800">Packrafting El Chaltén</span>
+                    <img src="https://page.gensparksite.com/v1/base64_upload/b853d488d2a96f41f8cf1862b6a0c890" 
+                         alt="Packrafting El Chaltén Logo" 
+                         class="h-10 w-auto">
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-6">
@@ -172,7 +173,8 @@ app.get('/', (c) => {
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
             <div class="hero-gradient absolute inset-0 z-10"></div>
-            <img src="/static/images/hero-bg.jpg" alt="Packrafting Patagonia" 
+            <img src="https://page.gensparksite.com/v1/base64_upload/ba96291671d45829c35ff154278574da" 
+                 alt="Packrafting Patagonia con vista al Fitz Roy" 
                  class="w-full h-full object-cover">
         </div>
         
@@ -253,7 +255,8 @@ app.get('/', (c) => {
                 </div>
                 
                 <div class="relative">
-                    <img src="/static/images/experience-1.jpg" alt="Packrafting Experience" 
+                    <img src="https://page.gensparksite.com/v1/base64_upload/9f1d6f5ee82edf993378b0d2c5e92e38" 
+                         alt="Packrafting Experience - Vista panorámica" 
                          class="rounded-lg shadow-xl">
                     <div class="absolute -bottom-6 -left-6 bg-orange-500 text-white p-4 rounded-lg shadow-lg">
                         <p class="font-bold text-lg">USD 150</p>
@@ -270,6 +273,13 @@ app.get('/', (c) => {
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-800 mb-4" data-i18n="safety.title">Seguridad y Protocolos</h2>
                 <p class="text-xl text-gray-600" data-i18n="safety.subtitle">Tu seguridad es nuestra prioridad</p>
+            </div>
+            
+            <!-- Safety Hero Image -->
+            <div class="mb-12">
+                <img src="https://page.gensparksite.com/v1/base64_upload/0318f95f857e0f1d13d458cd0f6d9183" 
+                     alt="Trabajo en equipo y seguridad" 
+                     class="w-full max-w-4xl mx-auto rounded-lg shadow-xl">
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -312,6 +322,42 @@ app.get('/', (c) => {
         </div>
     </section>
     
+    <!-- Adventure in All Seasons Section -->
+    <section id="seasons" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Aventura Todo el Año</h2>
+                <p class="text-xl text-gray-600">Desde primavera hasta otoño, cada temporada tiene su magia</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="relative group">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/c266fce8e15e566f7d56b9956dcbe85a" 
+                         alt="Packrafting invernal" 
+                         class="rounded-lg shadow-xl w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-lg flex items-end">
+                        <div class="p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2">Aventuras Invernales</h3>
+                            <p>Experiencias únicas con paisajes nevados</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/00f9eb05e6a52341d15d843d5b56c531" 
+                         alt="Equipo en condiciones extremas" 
+                         class="rounded-lg shadow-xl w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-lg flex items-end">
+                        <div class="p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2">Guías Expertos</h3>
+                            <p>Profesionales certificados para tu seguridad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Gallery Section -->
     <section id="gallery" class="py-20 bg-white">
         <div class="container mx-auto px-4">
@@ -322,16 +368,44 @@ app.get('/', (c) => {
             
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="/static/images/gallery-1.jpg" alt="Packrafting" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc" 
+                         alt="Packrafting en acción" 
+                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
                 </div>
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="/static/images/gallery-2.jpg" alt="Fitz Roy" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/afce1c4d34ff63a51d7751d8b7c72f48" 
+                         alt="Preparación del grupo" 
+                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
                 </div>
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="/static/images/gallery-3.jpg" alt="Río de las Vueltas" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce" 
+                         alt="Grupo con packrafts" 
+                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
                 </div>
                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="/static/images/gallery-4.jpg" alt="Adventure" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/a0af2b4a61487b9f5c50f8dbb1956a4c" 
+                         alt="Soledad y naturaleza" 
+                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/901b16630c289572a34bc012a86d0fd4" 
+                         alt="Navegando aguas tranquilas" 
+                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/4e16fb0b0de94b3ee796b135a5ee5167" 
+                         alt="Preparación del packraft" 
+                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/8e63c98b00dbaafcd37c1a57b5668a09" 
+                         alt="Listo para la aventura" 
+                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/51f859f74b373cbcb7292b27eb87939c" 
+                         alt="Trekking con equipos" 
+                         class="w-full h-64 object-cover hover:scale-110 transition duration-500">
                 </div>
             </div>
         </div>
@@ -430,8 +504,9 @@ app.get('/', (c) => {
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-4 text-center">
             <div class="mb-4">
-                <i class="fas fa-water text-patagonia-sky text-3xl mb-2"></i>
-                <h3 class="text-xl font-bold">Packrafting El Chaltén</h3>
+                <img src="https://page.gensparksite.com/v1/base64_upload/b853d488d2a96f41f8cf1862b6a0c890" 
+                     alt="Packrafting El Chaltén" 
+                     class="h-16 mx-auto mb-2">
             </div>
             <p class="text-sm text-gray-400 mb-2">
                 © 2024 Packrafting El Chaltén. Todos los derechos reservados.
