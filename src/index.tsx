@@ -132,11 +132,11 @@ app.get('/', (c) => {
                         <button onclick="setLanguage('en')" class="lang-btn text-sm px-2 py-1 rounded" data-lang="en">EN</button>
                     </div>
                     
-                    <a href="https://app.turitop.com/booking/box/H407/P21/es/" target="_blank" 
+                    <button onclick="openTuritopModal()" 
                        class="bg-patagonia-blue text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
                         <i class="fas fa-calendar-check mr-2"></i>
                         <span data-i18n="nav.book">Reservar</span>
-                    </a>
+                    </button>
                 </div>
                 
                 <!-- Mobile menu button -->
@@ -159,10 +159,10 @@ app.get('/', (c) => {
                     <button onclick="setLanguage('es')" class="text-sm px-3 py-1 bg-gray-100 rounded">ES</button>
                     <button onclick="setLanguage('en')" class="text-sm px-3 py-1 bg-gray-100 rounded">EN</button>
                 </div>
-                <a href="https://app.turitop.com/booking/box/H407/P21/es/" target="_blank" 
-                   class="block bg-patagonia-blue text-white text-center py-2 rounded-lg">
+                <button onclick="openTuritopModal()" 
+                   class="block w-full bg-patagonia-blue text-white text-center py-2 rounded-lg">
                     Reservar Ahora
-                </a>
+                </button>
             </div>
         </div>
     </nav>
@@ -189,10 +189,10 @@ app.get('/', (c) => {
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://app.turitop.com/booking/box/H407/P21/es/" target="_blank"
+                <button onclick="openTuritopModal()"
                    class="px-8 py-4 bg-orange-500 text-white rounded-lg font-bold hover:bg-orange-600 transition transform hover:scale-105 shadow-xl">
                     <span data-i18n="hero.cta1">RESERVAR AHORA</span>
-                </a>
+                </button>
                 <a href="#experience" 
                    class="px-8 py-4 border-2 border-white text-white rounded-lg font-bold hover:bg-white hover:text-patagonia-blue transition">
                     <span data-i18n="hero.cta2">VER EXPERIENCIA</span>
@@ -410,17 +410,16 @@ app.get('/', (c) => {
                     <div>
                         <h3 class="text-xl font-semibold mb-4">Reserva directa</h3>
                         <p class="mb-4">Reserva tu experiencia de forma segura a través de nuestra plataforma:</p>
-                        <a href="https://app.turitop.com/booking/box/H407/P21/es/" target="_blank"
+                        <button onclick="openTuritopModal()"
                            class="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
-                            <i class="fas fa-external-link-alt mr-2"></i>
-                            RESERVAR EN TURITOP
-                        </a>
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            ABRIR CALENDARIO DE RESERVAS
+                        </button>
                     </div>
                     
-                    <!-- Embed Turitop Widget -->
-                    <div class="mt-6">
-                        <script src="https://app.turitop.com/js/widget.js"></script>
-                        <div data-turitop="H407" data-product="P21" data-lang="es"></div>
+                    <!-- Widget Turitop Oficial -->
+                    <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                        <div class="load-turitop" data-service="P2" data-lang="es" data-embed="box"></div>
                     </div>
                 </div>
             </div>
@@ -442,6 +441,12 @@ app.get('/', (c) => {
             </p>
         </div>
     </footer>
+    
+    <!-- Turitop Widget Script (Global) -->
+    <script id="js-turitop" src="https://app.turitop.com/js/load-turitop.min.js" 
+            data-company="H407" 
+            data-buttoncolor="green" 
+            data-afftag="ttafid"></script>
     
     <!-- Scripts -->
     <script>
@@ -508,9 +513,13 @@ app.get('/', (c) => {
             loadTranslations(lang);
             
             // Update Turitop widget language
-            const turitopWidget = document.querySelector('[data-turitop]');
+            const turitopWidget = document.querySelector('.load-turitop');
             if (turitopWidget) {
                 turitopWidget.setAttribute('data-lang', lang);
+                // Reload widget with new language if needed
+                if (typeof window.TuritopApp !== 'undefined') {
+                    // Widget will auto-reload with new language
+                }
             }
         }
         
@@ -578,6 +587,18 @@ app.get('/', (c) => {
                 navbar.classList.remove('shadow-lg');
             }
         });
+        
+        // Function to open Turitop modal
+        function openTuritopModal() {
+            // Check if Turitop widget has created a button
+            const turitopButtons = document.querySelectorAll('.turitop-button, .turitop-box-button, button[data-turitop]');
+            if (turitopButtons.length > 0) {
+                turitopButtons[0].click();
+            } else {
+                // Fallback to direct link with correct service ID
+                window.open('https://app.turitop.com/booking/box/H407/P2/' + currentLang + '/', '_blank');
+            }
+        }
         
         // Initialize
         loadTranslations(currentLang);
