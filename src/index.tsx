@@ -299,9 +299,7 @@ app.get('/', (c) => {
                         </h3>
                         
                         <!-- Turitop Widget Embed -->
-                        <div id="turitop-widget-container" class="w-full min-h-[400px]">
-                            <!-- Widget will be loaded here dynamically -->
-                        </div>
+                        <div class="load-turitop" data-service="P2" data-lang="es" data-embed="box"></div>
                         
                         <!-- Trust Badges -->
                         <div class="mt-6 pt-6 border-t border-gray-200">
@@ -869,31 +867,13 @@ app.get('/', (c) => {
         
         // Initialize
         loadTranslations(currentLang);
-        
-        // Load Turitop Widget after page loads
-        function loadTuritopWidget() {
-            const script = document.createElement('script');
-            script.src = 'https://app.turitop.com/js/load.js';
-            script.setAttribute('data-company', 'H407');
-            script.setAttribute('data-service', 'P2');
-            script.setAttribute('data-buttoncolor', '2563eb');
-            script.setAttribute('data-ga', 'no');
-            script.setAttribute('data-afftag', 'ttafid');
-            script.setAttribute('data-language', 'auto');
-            
-            const container = document.getElementById('turitop-widget-container');
-            if (container) {
-                container.appendChild(script);
-            }
-        }
-        
-        // Load widget when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadTuritopWidget);
-        } else {
-            loadTuritopWidget();
-        }
     </script>
+    
+    <!-- Turitop Global Script (footer) -->
+    <script id="js-turitop" src="https://app.turitop.com/js/load-turitop.min.js" 
+            data-company="H407" 
+            data-buttoncolor="green" 
+            data-afftag="ttafid"></script>
 </body>
 </html>
   `
