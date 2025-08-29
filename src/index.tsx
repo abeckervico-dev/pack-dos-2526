@@ -77,7 +77,7 @@ app.get('/', (c) => {
     <!-- Custom Styles -->
     <style>
       .hero-gradient {
-        background: linear-gradient(135deg, rgba(74, 144, 226, 0.9) 0%, rgba(47, 82, 51, 0.9) 100%);
+        background: linear-gradient(135deg, rgba(74, 144, 226, 0.4) 0%, rgba(47, 82, 51, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
       }
       
       .glass-effect {
@@ -180,15 +180,17 @@ app.get('/', (c) => {
         
         <!-- Content -->
         <div class="relative z-20 text-center text-white px-4 fade-in">
-            <h1 class="text-5xl md:text-7xl font-bold mb-4" data-i18n="hero.title">
-                PACKRAFTING EL CHALTÉN
-            </h1>
-            <h2 class="text-2xl md:text-3xl mb-6" data-i18n="hero.subtitle">
-                Descubre la Patagonia Auténtica
-            </h2>
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto" data-i18n="hero.description">
-                Experiencias 100% Privadas en el Río de las Vueltas
-            </p>
+            <div class="bg-black/30 backdrop-blur-sm p-8 rounded-lg inline-block">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 drop-shadow-2xl" data-i18n="hero.title">
+                    PACKRAFTING EL CHALTÉN
+                </h1>
+                <h2 class="text-2xl md:text-3xl mb-6 drop-shadow-xl" data-i18n="hero.subtitle">
+                    Descubre la Patagonia Auténtica
+                </h2>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-lg" data-i18n="hero.description">
+                    Experiencias 100% Privadas en el Río de las Vueltas
+                </p>
+            </div>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#experience" 

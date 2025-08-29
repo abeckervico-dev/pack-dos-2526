@@ -1,0 +1,97 @@
+Sección,Clave,Texto Español,Texto Inglés,Notas
+NAVEGACIÓN,nav.home,Inicio,Home,Menú principal
+NAVEGACIÓN,nav.experience,La Experiencia,The Experience,Menú principal
+NAVEGACIÓN,nav.safety,Seguridad,Safety,Menú principal
+NAVEGACIÓN,nav.gallery,Galería,Gallery,Menú principal
+NAVEGACIÓN,nav.faq,Preguntas Frecuentes,FAQ,Menú principal
+NAVEGACIÓN,nav.contact,Contacto,Contact,Menú principal
+NAVEGACIÓN,nav.book,Reservar Ahora,Book Now,Botón de reserva
+
+HERO/PORTADA,hero.title,PACKRAFTING EL CHALTÉN,PACKRAFTING EL CHALTÉN,Título principal
+HERO/PORTADA,hero.subtitle,Donde el río te llama por tu nombre,Where the river calls your name,Subtítulo emotivo
+HERO/PORTADA,hero.description,El Fitz Roy te observa mientras remas hacia tu próxima gran historia,Fitz Roy watches as you paddle into your next great story,Descripción principal
+HERO/PORTADA,hero.cta1,RESERVAR AHORA,BOOK NOW,Botón principal
+HERO/PORTADA,hero.cta2,VER GALERÍA,VIEW GALLERY,Botón secundario
+
+EXPERIENCIA,experience.title,La Experiencia,The Experience,Título sección
+EXPERIENCIA,experience.subtitle,Tu conexión íntima con la Patagonia salvaje,Your intimate connection with wild Patagonia,Subtítulo
+EXPERIENCIA,experience.description,"Imaginate remando por aguas cristalinas mientras el viento patagónico acaricia tu rostro y el Fitz Roy se alza majestuoso en el horizonte. No es solo packrafting, es tu momento de libertad absoluta en uno de los últimos rincones salvajes del planeta.","Imagine paddling through crystal-clear waters while the Patagonian wind caresses your face and Fitz Roy rises majestically on the horizon. This isn't just packrafting, it's your moment of absolute freedom in one of the last wild corners of the planet.",Descripción principal
+EXPERIENCIA,experience.includes,Tu aventura incluye:,Your adventure includes:,Título lista incluidos
+EXPERIENCIA,experience.include1,Packraft individual de expedición,Individual expedition packraft,Incluido 1
+EXPERIENCIA,experience.include2,Equipo completo de seguridad certificado,Complete certified safety equipment,Incluido 2
+EXPERIENCIA,experience.include3,Guía profesional UIMLA con experiencia local,Professional UIMLA guide with local expertise,Incluido 3
+EXPERIENCIA,experience.include4,Snack energético patagónico,Patagonian energy snack,Incluido 4
+EXPERIENCIA,experience.include5,Fotografías profesionales de tu aventura,Professional photos of your adventure,Incluido 5
+EXPERIENCIA,experience.include6,Transporte desde El Chaltén,Transport from El Chaltén,Incluido 6
+EXPERIENCIA,experience.duration,Duración,Duration,Label
+EXPERIENCIA,experience.durationValue,4 horas de pura aventura,4 hours of pure adventure,Valor duración
+EXPERIENCIA,experience.groups,Grupos,Groups,Label
+EXPERIENCIA,experience.groupsValue,2-8 aventureros,2-8 adventurers,Valor grupos
+EXPERIENCIA,experience.season,Temporada,Season,Label
+EXPERIENCIA,experience.seasonValue,Octubre - Abril,October - April,Valor temporada
+EXPERIENCIA,experience.level,Nivel,Level,Label
+EXPERIENCIA,experience.levelValue,Principiante+,Beginner+,Valor nivel
+EXPERIENCIA,experience.bookingTitle,Reservá tu aventura,Book your adventure,Título widget reserva
+EXPERIENCIA,experience.secure,Pago Seguro,Secure Payment,Badge seguridad
+EXPERIENCIA,experience.cancellation,Cancelación Flexible,Flexible Cancellation,Badge cancelación
+EXPERIENCIA,experience.support,Soporte 24/7,24/7 Support,Badge soporte
+EXPERIENCIA,experience.mediaTitle,¿Querés ver más?,Want to see more?,Título multimedia
+EXPERIENCIA,experience.mediaDesc,Explorá nuestra galería completa de fotos y videos,Explore our complete gallery of photos and videos,Descripción multimedia
+EXPERIENCIA,experience.photosLink,Galería de Fotos,Photo Gallery,Link fotos
+EXPERIENCIA,experience.videosLink,Videos HD,HD Videos,Link videos
+
+SEGURIDAD,safety.title,Seguridad y Protocolos,Safety and Protocols,Título sección
+SEGURIDAD,safety.subtitle,Tu seguridad es nuestra prioridad,Your safety is our priority,Subtítulo
+SEGURIDAD,safety.cert1,Prestador PNLG,PNLG Provider,Certificación 1
+SEGURIDAD,safety.cert2,P.A.T: 2.231,P.A.T: 2.231,Certificación 2
+SEGURIDAD,safety.cert3,Guías UIMLA,UIMLA Guides,Certificación 3
+SEGURIDAD,safety.equip1,Packrafts certificados,Certified packrafts,Equipo 1
+SEGURIDAD,safety.equip2,Chalecos salvavidas homologados,Approved life jackets,Equipo 2
+SEGURIDAD,safety.equip3,Trajes secos,Dry suits,Equipo 3
+SEGURIDAD,safety.equip4,Kit primeros auxilios,First aid kit,Equipo 4
+SEGURIDAD,safety.equip5,Comunicación satelital,Satellite communication,Equipo 5
+SEGURIDAD,safety.cond1,Vientos > 22 nudos,Winds > 22 knots,Condición suspensión 1
+SEGURIDAD,safety.cond2,Condiciones hídricas desfavorables,Unfavorable water conditions,Condición suspensión 2
+SEGURIDAD,safety.cond3,Alertas meteorológicas,Weather alerts,Condición suspensión 3
+
+GALERÍA,gallery.title,Momentos que se vuelven leyenda,Moments that become legends,Título sección
+GALERÍA,gallery.subtitle,"Cada remada es una historia, cada foto un recuerdo imborrable","Every paddle stroke is a story, every photo an indelible memory",Subtítulo
+GALERÍA,gallery.cta,¿Querés aparecer en nuestra galería?,Want to appear in our gallery?,Call to action
+GALERÍA,gallery.ctaDesc,Cada aventura es única y tus fotos podrían inspirar a otros aventureros,Every adventure is unique and your photos could inspire other adventurers,Descripción CTA
+
+FAQ,faq.title,Preguntas Frecuentes,Frequently Asked Questions,Título sección
+FAQ,faq.q1,¿Necesito experiencia previa en kayak o packraft?,Do I need previous kayak or packraft experience?,Pregunta 1
+FAQ,faq.a1,No es necesaria experiencia previa. Nuestros guías te brindarán una completa introducción sobre técnicas de remo y seguridad.,No previous experience is necessary. Our guides will provide a complete introduction to paddling techniques and safety.,Respuesta 1
+FAQ,faq.q2,¿Qué debo llevar?,What should I bring?,Pregunta 2
+FAQ,faq.a2,"Ropa cómoda (preferentemente sintética), protector solar, gafas de sol, gorra, botella de agua y calzado que se pueda mojar.","Comfortable clothing (preferably synthetic), sunscreen, sunglasses, cap, water bottle, and footwear that can get wet.",Respuesta 2
+FAQ,faq.q3,¿Es seguro para personas que no saben nadar bien?,Is it safe for people who can't swim well?,Pregunta 3
+FAQ,faq.a3,Es requisito indispensable saber nadar. Todos los participantes usan chaleco salvavidas obligatorio.,Swimming is a mandatory requirement. All participants wear mandatory life jackets.,Respuesta 3
+FAQ,faq.q4,¿Qué pasa si hay mal clima?,What happens if there's bad weather?,Pregunta 4
+FAQ,faq.a4,La seguridad es nuestra prioridad. Si las condiciones no son seguras reprogramamos o reembolso completo.,Safety is our priority. If conditions are not safe we reschedule or provide a full refund.,Respuesta 4
+FAQ,faq.q5,¿Incluye transporte desde El Chaltén?,Does it include transportation from El Chaltén?,Pregunta 5
+FAQ,faq.a5,El servicio base no incluye transporte. Podemos coordinar transporte privado con costo adicional.,The base service does not include transportation. We can arrange private transport for an additional cost.,Respuesta 5
+FAQ,faq.q6,¿Puedo llevar cámara o celular?,Can I bring a camera or phone?,Pregunta 6
+FAQ,faq.a6,Sí recomendamos llevar cámaras con correa de seguridad y fundas impermeables.,Yes we recommend bringing cameras with safety straps and waterproof cases.,Respuesta 6
+
+CONTACTO,contact.title,¿Listo para escribir tu historia patagónica?,Ready to write your Patagonian story?,Título sección
+CONTACTO,contact.subtitle,Los mejores momentos de tu vida están a una remada de distancia,The best moments of your life are just a paddle stroke away,Subtítulo
+CONTACTO,contact.form.name,Nombre completo,Full name,Campo formulario
+CONTACTO,contact.form.email,Correo electrónico,Email address,Campo formulario
+CONTACTO,contact.form.phone,Teléfono (opcional),Phone (optional),Campo formulario
+CONTACTO,contact.form.date,Fecha deseada,Preferred date,Campo formulario
+CONTACTO,contact.form.people,Número de personas,Number of people,Campo formulario
+CONTACTO,contact.form.message,Mensaje,Message,Campo formulario
+CONTACTO,contact.form.send,Enviar consulta,Send inquiry,Botón enviar
+CONTACTO,contact.info.email,contacto@hikingtour.tur.ar,contacto@hikingtour.tur.ar,Email contacto
+CONTACTO,contact.info.phone,+54 9 2966 XX-XXXX,+54 9 2966 XX-XXXX,Teléfono
+CONTACTO,contact.info.whatsapp,WhatsApp disponible,WhatsApp available,WhatsApp
+CONTACTO,contact.info.address,"El Chaltén, Santa Cruz, Argentina","El Chaltén, Santa Cruz, Argentina",Dirección
+
+FOOTER,footer.rights,Todos los derechos reservados,All rights reserved,Copyright
+FOOTER,footer.operator,Operado por Hiking Tour El Chaltén,Operated by Hiking Tour El Chaltén,Operador
+FOOTER,footer.certifications,Prestador habilitado PNLG | PAT 2.231 | CUIT: 20-34816054-1,Licensed provider PNLG | PAT 2.231 | CUIT: 20-34816054-1,Certificaciones
+
+ADICIONAL,widget.fallback,¿Problemas con el calendario?,Problems with the calendar?,Texto alternativo widget
+ADICIONAL,widget.fallback.button,Abrir Sistema de Reservas,Open Booking System,Botón alternativo
+ADICIONAL,video.title,Videos de Nuestras Aventuras,Videos of Our Adventures,Título videos
+ADICIONAL,video.more,Ver Más Videos en Google Drive,View More Videos on Google Drive,Link más videos
