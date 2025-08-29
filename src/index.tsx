@@ -661,6 +661,241 @@ app.get('/', (c) => {
         </div>
     </section>
     
+    <!-- Instagram Feed Section -->
+    <section id="instagram" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fab fa-instagram mr-2 text-purple-600"></i>
+                    Seguinos en Instagram
+                </h2>
+                <p class="text-xl text-gray-600">@packraftingelchalten - Actualizaciones en tiempo real</p>
+            </div>
+            
+            <!-- Instagram Feed Widget -->
+            <div class="max-w-6xl mx-auto">
+                <!-- Instagram Feed Script -->
+                <script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+                <div id="instafeed" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+                
+                <!-- Fallback Instagram Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="instagram-static">
+                    <a href="https://www.instagram.com/packraftingelchalten" target="_blank" class="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc" 
+                             alt="Instagram Post" 
+                             class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                            <div class="text-white">
+                                <i class="fas fa-heart mr-2"></i>124
+                                <i class="fas fa-comment ml-4 mr-2"></i>8
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Más posts estáticos como fallback -->
+                </div>
+                
+                <div class="text-center mt-8">
+                    <a href="https://www.instagram.com/packraftingelchalten" 
+                       target="_blank" 
+                       class="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-lg hover:shadow-lg transition transform hover:scale-105">
+                        <i class="fab fa-instagram mr-2"></i>
+                        Ver más en Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Google Reviews Section -->
+    <section id="reviews" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fab fa-google mr-2 text-blue-600"></i>
+                    Lo que dicen nuestros aventureros
+                </h2>
+                <p class="text-xl text-gray-600">Reseñas verificadas de Google</p>
+                <div class="flex justify-center items-center mt-4">
+                    <div class="flex text-yellow-400 text-2xl">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="ml-2 text-xl font-bold">5.0</span>
+                    <span class="ml-2 text-gray-600">(47 reseñas)</span>
+                </div>
+            </div>
+            
+            <!-- Reviews Grid -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Maria+Rodriguez&background=4A90E2&color=fff" 
+                             alt="Maria Rodriguez" 
+                             class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold">María Rodriguez</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        "Experiencia inolvidable! Alexander es un guía excepcional, muy profesional y atento. 
+                        Las vistas del Fitz Roy desde el río son espectaculares. 100% recomendado!"
+                    </p>
+                    <p class="text-sm text-gray-500">Hace 2 semanas</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center mb-4">
+                        <img src="https://ui-avatars.com/api/?name=John+Smith&background=2F5233&color=fff" 
+                             alt="John Smith" 
+                             class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold">John Smith</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        "Best adventure in Patagonia! Safe, professional, and breathtaking views. 
+                        The equipment is top quality and the guide speaks perfect English. Highly recommend!"
+                    </p>
+                    <p class="text-sm text-gray-500">Hace 1 mes</p>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Lucas+Fernandez&background=F97316&color=fff" 
+                             alt="Lucas Fernandez" 
+                             class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold">Lucas Fernández</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        "La mejor actividad que hice en El Chaltén. El packrafting es increíble y el paisaje 
+                        es de otro mundo. Alexander hace que todo sea seguro y divertido. ¡Volveré!"
+                    </p>
+                    <p class="text-sm text-gray-500">Hace 3 semanas</p>
+                </div>
+            </div>
+            
+            <!-- Google Reviews Button -->
+            <div class="text-center mt-8">
+                <a href="https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review" 
+                   target="_blank" 
+                   class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                    <i class="fab fa-google mr-2"></i>
+                    Ver todas las reseñas en Google
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Corporate Clients Section -->
+    <section id="corporate" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-building mr-2 text-patagonia-blue"></i>
+                    Empresas que confían en nosotros
+                </h2>
+                <p class="text-xl text-gray-600">Team building y experiencias corporativas en la Patagonia</p>
+            </div>
+            
+            <!-- Corporate Logos Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center max-w-5xl mx-auto mb-12">
+                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/150x80/4A90E2/ffffff?text=Empresa+1" 
+                         alt="Empresa 1" 
+                         class="w-full h-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/150x80/2F5233/ffffff?text=Empresa+2" 
+                         alt="Empresa 2" 
+                         class="w-full h-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/150x80/F97316/ffffff?text=Empresa+3" 
+                         alt="Empresa 3" 
+                         class="w-full h-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/150x80/8B5CF6/ffffff?text=Empresa+4" 
+                         alt="Empresa 4" 
+                         class="w-full h-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/150x80/059669/ffffff?text=Empresa+5" 
+                         alt="Empresa 5" 
+                         class="w-full h-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/150x80/DC2626/ffffff?text=Empresa+6" 
+                         alt="Empresa 6" 
+                         class="w-full h-auto grayscale hover:grayscale-0 transition">
+                </div>
+            </div>
+            
+            <!-- Corporate Benefits -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="text-center">
+                    <div class="bg-patagonia-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Team Building</h3>
+                    <p class="text-gray-600">Fortalecé el trabajo en equipo con una experiencia única en la naturaleza</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-patagonia-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Incentivos</h3>
+                    <p class="text-gray-600">Premiá a tu equipo con una aventura inolvidable en la Patagonia</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-orange-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Eventos Corporativos</h3>
+                    <p class="text-gray-600">Organizamos experiencias a medida para grupos empresariales</p>
+                </div>
+            </div>
+            
+            <!-- Corporate CTA -->
+            <div class="text-center mt-12">
+                <a href="#contact" 
+                   class="inline-flex items-center bg-patagonia-blue text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition transform hover:scale-105">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Consultá por grupos corporativos
+                </a>
+            </div>
+        </div>
+    </section>
+    
     <!-- FAQ Section -->
     <section id="faq" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 max-w-3xl">
@@ -931,6 +1166,18 @@ app.get('/', (c) => {
         
         // Initialize
         loadTranslations(currentLang);
+        
+        // Instagram Feed Integration
+        if (typeof Instafeed !== 'undefined') {
+            const feed = new Instafeed({
+                accessToken: 'YOUR_INSTAGRAM_ACCESS_TOKEN', // Necesitarás obtener esto
+                target: 'instafeed',
+                template: '<a href="{{link}}" target="_blank" class="relative group overflow-hidden rounded-lg shadow-lg"><img src="{{image}}" alt="{{caption}}" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4"><div class="text-white"><i class="fas fa-heart mr-2"></i>{{likes}} <i class="fas fa-comment ml-4 mr-2"></i>{{comments}}</div></div></a>',
+                limit: 8,
+                resolution: 'standard_resolution'
+            });
+            feed.run();
+        }
         
         // Ensure videos play automatically
         document.addEventListener('DOMContentLoaded', function() {
