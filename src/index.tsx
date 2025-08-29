@@ -106,6 +106,20 @@ app.get('/', (c) => {
         background-size: cover;
       }
       
+      /* Hero parallax effect */
+      .hero-image-container {
+        will-change: transform;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      
+      /* Better image quality */
+      .hero-image-container img {
+        image-rendering: crisp-edges;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
+      }
+      
       /* Video optimization styles */
       video {
         object-fit: cover;
@@ -195,12 +209,15 @@ app.get('/', (c) => {
     
     <!-- Hero Section -->
     <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0 z-0">
+        <!-- Parallax Background -->
+        <div class="absolute inset-0 z-0" id="hero-bg">
             <div class="hero-gradient absolute inset-0 z-10"></div>
-            <img src="https://page.gensparksite.com/v1/base64_upload/ba96291671d45829c35ff154278574da" 
-                 alt="Packrafting Patagonia con vista al Fitz Roy" 
-                 class="w-full h-full object-cover">
+            <div class="hero-image-container absolute inset-0 scale-110">
+                <img src="https://page.gensparksite.com/v1/base64_upload/ba96291671d45829c35ff154278574da" 
+                     alt="Packrafting Patagonia con vista al Fitz Roy" 
+                     class="w-full h-full object-cover object-center"
+                     style="transform: translateZ(0); image-rendering: -webkit-optimize-contrast;">
+            </div>
         </div>
         
         <!-- Content -->
@@ -487,136 +504,141 @@ app.get('/', (c) => {
                 </div>
             </div>
             
-            <!-- Videos Section -->
+            <!-- Media Gallery with Videos -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold text-center mb-6 text-patagonia-blue">
-                    <i class="fas fa-film mr-2"></i>
-                    Viví la Experiencia Packrafting
-                </h3>
-                
-                <!-- Main Video Hero -->
-                <div class="mb-8">
-                    <div class="relative rounded-lg overflow-hidden shadow-2xl">
-                        <video 
-                            class="w-full h-auto"
-                            autoplay 
-                            muted 
-                            loop 
-                            playsinline
-                            poster="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc">
-                            <source src="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/129abc05-0761-404e-bd50-12aee41f91c4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                            <h4 class="text-white text-2xl font-bold mb-2">
-                                <i class="fas fa-water mr-2"></i>
-                                Navegando el Río de las Vueltas
-                            </h4>
-                            <p class="text-white/90">Experiencia completa de packrafting con vistas al Fitz Roy</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Secondary Videos Grid -->
-                <div class="grid lg:grid-cols-3 gap-6">
-                    <!-- Video WhatsApp -->
-                    <div class="relative rounded-lg overflow-hidden shadow-xl group">
-                        <video 
-                            class="w-full h-64 object-cover group-hover:scale-105 transition duration-500"
-                            autoplay 
-                            muted 
-                            loop 
-                            playsinline>
-                            <source src="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/0a778588-5631-4b3c-b635-8c8bb61eeb79" type="video/mp4">
-                        </video>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                            <p class="text-white font-semibold">
-                                <i class="fas fa-route mr-2"></i>
-                                Momentos únicos
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Placeholder for more videos -->
-                    <div class="relative rounded-lg overflow-hidden shadow-xl bg-gradient-to-br from-patagonia-blue to-patagonia-green">
-                        <div class="h-64 flex items-center justify-center">
-                            <div class="text-center text-white p-6">
-                                <i class="fas fa-play-circle text-5xl mb-3"></i>
-                                <p class="font-bold">Más aventuras</p>
-                                <p class="text-sm">Próximamente</p>
+                <div class="grid lg:grid-cols-3 gap-4">
+                    <!-- Left Column: Photos Grid -->
+                    <div class="lg:col-span-2">
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- Photo 1 -->
+                            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                                <img src="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc" 
+                                     alt="Packrafting con vista al Fitz Roy" 
+                                     class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                            </div>
+                            
+                            <!-- Photo 2 -->
+                            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                                <img src="https://page.gensparksite.com/v1/base64_upload/afce1c4d34ff63a51d7751d8b7c72f48" 
+                                     alt="Preparación del grupo" 
+                                     class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                            </div>
+                            
+                            <!-- Photo 3 -->
+                            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                                <img src="https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce" 
+                                     alt="Grupo con packrafts" 
+                                     class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                            </div>
+                            
+                            <!-- Photo 4 -->
+                            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                                <img src="https://page.gensparksite.com/v1/base64_upload/a0af2b4a61487b9f5c50f8dbb1956a4c" 
+                                     alt="Soledad y naturaleza" 
+                                     class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                            </div>
+                            
+                            <!-- Photo 5 -->
+                            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                                <img src="https://page.gensparksite.com/v1/base64_upload/901b16630c289572a34bc012a86d0fd4" 
+                                     alt="Navegando aguas cristalinas" 
+                                     class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                            </div>
+                            
+                            <!-- Photo 6 -->
+                            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                                <img src="https://page.gensparksite.com/v1/base64_upload/4e16fb0b0de94b3ee796b135a5ee5167" 
+                                     alt="Equipamiento profesional" 
+                                     class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Call to Action -->
-                    <div class="relative rounded-lg overflow-hidden shadow-xl bg-gradient-to-br from-orange-500 to-red-500">
-                        <div class="h-64 flex items-center justify-center">
-                            <div class="text-center text-white p-6">
-                                <i class="fas fa-calendar-check text-5xl mb-3"></i>
-                                <p class="font-bold text-xl mb-2">¿Listo para tu aventura?</p>
-                                <a href="#experience" 
-                                   class="inline-block bg-white text-orange-500 px-4 py-2 rounded-lg hover:bg-gray-100 transition">
-                                    Reservar Ahora
-                                </a>
+                    <!-- Right Column: Main Video -->
+                    <div class="lg:col-span-1">
+                        <div class="sticky top-24">
+                            <!-- Main Video -->
+                            <div class="relative rounded-lg overflow-hidden shadow-2xl mb-4">
+                                <video 
+                                    class="w-full h-auto"
+                                    autoplay 
+                                    muted 
+                                    loop 
+                                    playsinline
+                                    controls
+                                    poster="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc">
+                                    <source src="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/129abc05-0761-404e-bd50-12aee41f91c4" type="video/mp4">
+                                    Tu navegador no soporta el elemento de video.
+                                </video>
+                                <div class="absolute top-2 left-2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center">
+                                    <span class="animate-pulse mr-2">•</span>
+                                    EN VIVO
+                                </div>
+                            </div>
+                            
+                            <!-- Secondary Video -->
+                            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                                <video 
+                                    class="w-full h-48 object-cover"
+                                    autoplay 
+                                    muted 
+                                    loop 
+                                    playsinline>
+                                    <source src="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/0a778588-5631-4b3c-b635-8c8bb61eeb79" type="video/mp4">
+                                </video>
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                    <p class="text-white text-sm font-semibold">
+                                        <i class="fas fa-route mr-1"></i>
+                                        Momentos destacados
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Photo Grid with Mixed Sizes -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Large featured image -->
-                <div class="col-span-2 row-span-2 relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc" 
-                         alt="Packrafting con vista al Fitz Roy" 
-                         class="w-full h-full object-cover hover:scale-110 transition duration-500">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                        <p class="text-white font-bold">Vista épica del Fitz Roy</p>
-                    </div>
-                </div>
-                
-                <!-- Regular images -->
-                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/afce1c4d34ff63a51d7751d8b7c72f48" 
-                         alt="Preparación del grupo" 
-                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
-                </div>
-                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce" 
-                         alt="Grupo con packrafts" 
-                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
-                </div>
-                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/a0af2b4a61487b9f5c50f8dbb1956a4c" 
-                         alt="Soledad y naturaleza" 
-                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
-                </div>
-                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/901b16630c289572a34bc012a86d0fd4" 
-                         alt="Navegando aguas cristalinas" 
-                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
-                </div>
-                
-                <!-- Horizontal featured image -->
-                <div class="col-span-2 relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/4e16fb0b0de94b3ee796b135a5ee5167" 
-                         alt="Equipo profesional" 
-                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                        <p class="text-white font-bold">Equipamiento de primera calidad</p>
-                    </div>
-                </div>
-                
-                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+            <!-- Additional Photos Strip -->
+            <div class="grid grid-cols-4 md:grid-cols-8 gap-2 mb-8">
+                <div class="relative overflow-hidden rounded shadow-md hover:shadow-lg transition">
                     <img src="https://page.gensparksite.com/v1/base64_upload/8e63c98b00dbaafcd37c1a57b5668a09" 
-                         alt="Aventura lista" 
-                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                         alt="Aventura" 
+                         class="w-full h-24 object-cover hover:scale-110 transition duration-300">
                 </div>
-                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                <div class="relative overflow-hidden rounded shadow-md hover:shadow-lg transition">
                     <img src="https://page.gensparksite.com/v1/base64_upload/51f859f74b373cbcb7292b27eb87939c" 
-                         alt="Trekking con equipos" 
-                         class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                         alt="Trekking" 
+                         class="w-full h-24 object-cover hover:scale-110 transition duration-300">
+                </div>
+                <div class="relative overflow-hidden rounded shadow-md hover:shadow-lg transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/afce1c4d34ff63a51d7751d8b7c72f48" 
+                         alt="Grupo" 
+                         class="w-full h-24 object-cover hover:scale-110 transition duration-300">
+                </div>
+                <div class="relative overflow-hidden rounded shadow-md hover:shadow-lg transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce" 
+                         alt="Packrafts" 
+                         class="w-full h-24 object-cover hover:scale-110 transition duration-300">
+                </div>
+                <div class="relative overflow-hidden rounded shadow-md hover:shadow-lg transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/a0af2b4a61487b9f5c50f8dbb1956a4c" 
+                         alt="Naturaleza" 
+                         class="w-full h-24 object-cover hover:scale-110 transition duration-300">
+                </div>
+                <div class="relative overflow-hidden rounded shadow-md hover:shadow-lg transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/901b16630c289572a34bc012a86d0fd4" 
+                         alt="Río" 
+                         class="w-full h-24 object-cover hover:scale-110 transition duration-300">
+                </div>
+                <div class="relative overflow-hidden rounded shadow-md hover:shadow-lg transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/4e16fb0b0de94b3ee796b135a5ee5167" 
+                         alt="Equipo" 
+                         class="w-full h-24 object-cover hover:scale-110 transition duration-300">
+                </div>
+                <div class="relative overflow-hidden rounded shadow-md hover:shadow-lg transition">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc" 
+                         alt="Fitz Roy" 
+                         class="w-full h-24 object-cover hover:scale-110 transition duration-300">
                 </div>
             </div>
             
@@ -875,13 +897,24 @@ app.get('/', (c) => {
             });
         });
         
-        // Navbar scroll effect
+        // Navbar scroll effect and Parallax
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
+            const scrolled = window.scrollY;
+            
+            // Navbar shadow
+            if (scrolled > 50) {
                 navbar.classList.add('shadow-lg');
             } else {
                 navbar.classList.remove('shadow-lg');
+            }
+            
+            // Parallax effect for hero image
+            const heroImage = document.querySelector('.hero-image-container');
+            if (heroImage && scrolled < window.innerHeight) {
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
+                heroImage.style.transform = \`translateY(\${yPos}px) scale(1.1)\`;
             }
         });
         
