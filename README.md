@@ -21,16 +21,21 @@
 - **Flujo de datos**: Widget Turitop maneja reservas, pagos y disponibilidad externamente
 
 ## Funcionalidades Completadas ✅
-1. **Widget de reservas Turitop integrado**: Directamente en la sección de experiencia (columna derecha)
-2. **Copy de marketing actualizado**: Narrativa épica patagónica que conecta emocionalmente
-3. **Galería multimedia mejorada**: 
-   - Grid dinámico con imágenes destacadas
-   - Sección para video HD destacado
-   - Enlaces a galerías externas (Google Drive, YouTube, Instagram)
-4. **Sistema de traducción i18n**: Cambio instantáneo entre español e inglés
-5. **Diseño responsive**: Optimizado para todos los dispositivos
-6. **Eliminación de precio fijo**: Solo precios dinámicos vía widget Turitop
+1. **Widgets de reservas Turitop bilingües**: Dos widgets separados (ES/EN) que se alternan según idioma
+2. **Sistema i18n completo**: 100% del sitio traducido, incluyendo menús, botones y contenido dinámico
+3. **Galería multimedia HD**: 
+   - Videos embebidos directamente (no enlaces externos)
+   - Hero image con efecto parallax
+   - Grid responsivo de imágenes
+4. **Reseñas reales de Google**: Integradas del perfil de Hiking Tour El Chaltén
+5. **Servicios B2B**: Botón integrado en formulario de contacto
+6. **Diseño responsive**: Optimizado para todos los dispositivos
 7. **Navegación suave**: Scroll smooth entre secciones
+8. **Información actualizada**: 
+   - WhatsApp: +54 9 2902 48-4140
+   - Email: contacto@hikingtour.tur.ar
+   - Instagram: @hiking.tour.chalten
+   - Certificaciones: CAP, R.P.A.T: 2.231, R.N.A.V: 20.311
 
 ## URIs Funcionales Actuales
 

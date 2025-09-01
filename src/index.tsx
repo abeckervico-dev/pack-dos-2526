@@ -77,7 +77,7 @@ app.get('/', (c) => {
     <!-- Custom Styles -->
     <style>
       .hero-gradient {
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.4) 100%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.35) 100%);
       }
       
       .glass-effect {
@@ -106,22 +106,29 @@ app.get('/', (c) => {
         background-size: cover;
       }
       
-      /* Hero parallax effect */
-      .hero-image-container {
-        will-change: transform;
-        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        transform: scale(1.05);
+      /* Hero HD image optimization */
+      #hero-bg {
+        background-color: #0a0a0a;
+        overflow: hidden;
       }
       
-      /* Better image quality */
-      .hero-image-container img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
+      #hero-bg picture,
+      #hero-bg img {
+        will-change: transform;
         backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        perspective: 1000px;
+        -webkit-perspective: 1000px;
         transform: translateZ(0);
-        min-height: 100vh;
-        width: auto;
-        min-width: 100%;
+        -webkit-transform: translateZ(0);
+      }
+      
+      /* Force high quality rendering */
+      #hero-bg img {
+        rendering: optimizeQuality;
+        color-rendering: optimizeQuality;
+        shape-rendering: geometricPrecision;
+        text-rendering: geometricPrecision;
       }
       
       @media (max-width: 768px) {
@@ -130,12 +137,22 @@ app.get('/', (c) => {
         }
       }
       
-      /* Video optimization styles */
+      /* Video optimization styles for HD quality */
       video {
         object-fit: cover;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
         will-change: transform;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      
+      /* Parallax para video y imagen */
+      [data-parallax] {
+        will-change: transform;
+        transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
       }
       
       video::-webkit-media-controls {
@@ -161,19 +178,17 @@ app.get('/', (c) => {
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-md">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-2">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/b318b0865758a4172d61ba8b693d8e41" 
-                         alt="Hiking Tour Packrafting Logo" 
-                         class="h-12 w-auto"
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-gray-700">Packrafting El Chaltén</span>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-patagonia-blue transition">Inicio</a>
-                    <a href="#experience" class="nav-link text-gray-700 hover:text-patagonia-blue transition">Experiencia</a>
-                    <a href="#safety" class="nav-link text-gray-700 hover:text-patagonia-blue transition">Seguridad</a>
-                    <a href="#gallery" class="nav-link text-gray-700 hover:text-patagonia-blue transition">Galería</a>
-                    <a href="#faq" class="nav-link text-gray-700 hover:text-patagonia-blue transition">FAQ</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-patagonia-blue transition">Contacto</a>
+                    <a href="#home" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.home">Inicio</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.experience">Experiencia</a>
+                    <a href="#safety" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.safety">Seguridad</a>
+                    <a href="#gallery" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.gallery">Galería</a>
+                    <a href="#faq" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.faq">FAQ</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.contact">Contacto</a>
                     
                     <!-- Language Switcher -->
                     <div class="flex items-center space-x-2 ml-4">
@@ -199,19 +214,19 @@ app.get('/', (c) => {
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <div class="px-4 py-2 space-y-2">
-                <a href="#home" class="block py-2 text-gray-700">Inicio</a>
-                <a href="#experience" class="block py-2 text-gray-700">Experiencia</a>
-                <a href="#safety" class="block py-2 text-gray-700">Seguridad</a>
-                <a href="#gallery" class="block py-2 text-gray-700">Galería</a>
-                <a href="#faq" class="block py-2 text-gray-700">FAQ</a>
-                <a href="#contact" class="block py-2 text-gray-700">Contacto</a>
+                <a href="#home" class="block py-2 text-gray-700" data-i18n="nav.home">Inicio</a>
+                <a href="#experience" class="block py-2 text-gray-700" data-i18n="nav.experience">Experiencia</a>
+                <a href="#safety" class="block py-2 text-gray-700" data-i18n="nav.safety">Seguridad</a>
+                <a href="#gallery" class="block py-2 text-gray-700" data-i18n="nav.gallery">Galería</a>
+                <a href="#faq" class="block py-2 text-gray-700" data-i18n="nav.faq">FAQ</a>
+                <a href="#contact" class="block py-2 text-gray-700" data-i18n="nav.contact">Contacto</a>
                 <div class="flex space-x-2 py-2">
-                    <button onclick="setLanguage('es')" class="text-sm px-3 py-1 bg-gray-100 rounded">ES</button>
-                    <button onclick="setLanguage('en')" class="text-sm px-3 py-1 bg-gray-100 rounded">EN</button>
+                    <button onclick="setLanguage('es')" class="lang-btn text-sm px-3 py-1 bg-gray-100 rounded" data-lang="es">ES</button>
+                    <button onclick="setLanguage('en')" class="lang-btn text-sm px-3 py-1 bg-gray-100 rounded" data-lang="en">EN</button>
                 </div>
                 <a href="#experience" 
                    class="block w-full bg-patagonia-blue text-white text-center py-2 rounded-lg">
-                    Reservar Ahora
+                    <span data-i18n="nav.book">Reservar Ahora</span>
                 </a>
             </div>
         </div>
@@ -219,30 +234,47 @@ app.get('/', (c) => {
     
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Parallax Background -->
+        <!-- Parallax Background with Hero Image -->
         <div class="absolute inset-0 z-0" id="hero-bg">
-            <div class="hero-gradient absolute inset-0 z-10"></div>
-            <div class="hero-image-container absolute inset-0">
-                <img src="https://page.gensparksite.com/v1/base64_upload/479e10d9a2e9b151dd4c319246c91303" 
-                     alt="Packrafting en el Río de las Vueltas con vista a las montañas de El Chaltén" 
-                     class="w-full h-full object-cover object-center"
-                     style="transform: translateZ(0); image-rendering: crisp-edges; -webkit-backface-visibility: hidden;"
+            <!-- Gradient Overlay -->
+            <div class="hero-gradient absolute inset-0 z-20"></div>
+            
+            <!-- Hero Image Background HD -->
+            <div class="absolute inset-0 z-10 overflow-hidden">
+                <picture>
+                    <source srcset="https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce" type="image/jpeg">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce" 
+                         alt="Packrafting El Chaltén - Grupo preparándose para la aventura" 
+                         class="absolute inset-0 w-full h-full"
+                         loading="eager"
+                         fetchpriority="high"
+                         style="object-fit: cover; 
+                                object-position: center; 
+                                width: 100%; 
+                                height: 100%; 
+                                max-width: none;
+                                image-rendering: high-quality;
+                                image-rendering: -moz-crisp-edges;
+                                image-rendering: -webkit-optimize-contrast;
+                                transform: scale(1.02);">
+                </picture>
             </div>
         </div>
         
         <!-- Content -->
         <div class="relative z-20 text-center text-white px-4 fade-in mt-20">
-            <div class="bg-black/20 backdrop-blur-sm p-8 rounded-xl max-w-4xl mx-auto">
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-wider" 
+            <div class="bg-black/40 p-8 rounded-xl max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-wider" 
                     style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" 
                     data-i18n="hero.title">
-                    PACKRAFTING EL CHALTÉN
+                    PACKRAFTING
                 </h1>
-                <h2 class="text-2xl md:text-4xl mb-6 font-light" 
-                    style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);" 
-                    data-i18n="hero.subtitle">
-                    Descubre la Patagonia Auténtica
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 tracking-wide" 
+                    style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" 
+                    data-i18n="hero.title2">
+                    EL CHALTÉN
                 </h2>
+
                 <p class="text-lg md:text-2xl mb-8 max-w-3xl mx-auto" 
                    style="text-shadow: 1px 1px 2px rgba(0,0,0,0.8);" 
                    data-i18n="hero.description">
@@ -293,25 +325,24 @@ app.get('/', (c) => {
                                 <span data-i18n="experience.includes">Tu aventura incluye:</span>
                             </h3>
                             <ul class="space-y-2 text-gray-700">
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include1">Packraft individual de expedición</span></li>
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include2">Equipo completo de seguridad certificado</span></li>
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include3">Guía profesional UIMLA con experiencia local</span></li>
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include4">Snack energético patagónico</span></li>
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include5">Fotografías profesionales de tu aventura</span></li>
-                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include6">Transporte desde El Chaltén</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include1">Packraft de expedición</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include2">Equipo completo de seguridad</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include3">Guías locales certificados</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include4">Snack patagónico</span></li>
+                                <li><i class="fas fa-chevron-right text-patagonia-green mr-2"></i><span data-i18n="experience.include5">Transporte desde El Chaltén</span></li>
                             </ul>
                         </div>
                         
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-patagonia-ice p-4 rounded-lg">
                                 <i class="fas fa-clock text-patagonia-blue text-2xl mb-2"></i>
-                                <h4 class="font-semibold" data-i18n="experience.duration">Duración</h4>
-                                <p class="text-sm" data-i18n="experience.durationValue">4 horas de pura aventura</p>
+                                <h4 class="font-semibold" data-i18n="experience.duration.title">Duración</h4>
+                                <p class="text-sm" data-i18n="experience.duration.time">5 horas de pura aventura</p>
                             </div>
                             <div class="bg-patagonia-ice p-4 rounded-lg">
-                                <i class="fas fa-users text-patagonia-blue text-2xl mb-2"></i>
-                                <h4 class="font-semibold" data-i18n="experience.groups">Grupos</h4>
-                                <p class="text-sm" data-i18n="experience.groupsValue">2-8 aventureros</p>
+                                <i class="fas fa-water text-patagonia-blue text-2xl mb-2"></i>
+                                <h4 class="font-semibold">Remada</h4>
+                                <p class="text-sm" data-i18n="experience.duration.difficulty">1,5 horas de remada</p>
                             </div>
                             <div class="bg-patagonia-ice p-4 rounded-lg">
                                 <i class="fas fa-calendar text-patagonia-blue text-2xl mb-2"></i>
@@ -320,33 +351,12 @@ app.get('/', (c) => {
                             </div>
                             <div class="bg-patagonia-ice p-4 rounded-lg">
                                 <i class="fas fa-signal text-patagonia-blue text-2xl mb-2"></i>
-                                <h4 class="font-semibold" data-i18n="experience.level">Nivel</h4>
-                                <p class="text-sm" data-i18n="experience.levelValue">Principiante+</p>
+                                <h4 class="font-semibold" data-i18n="experience.level">Dificultad</h4>
+                                <p class="text-sm" data-i18n="experience.levelValue">Moderada</p>
                             </div>
                         </div>
                         
-                        <!-- Call to Action for Media -->
-                        <div class="bg-gradient-to-r from-patagonia-blue to-patagonia-green p-6 rounded-lg text-white">
-                            <h4 class="text-xl font-bold mb-2">
-                                <i class="fas fa-images mr-2"></i>
-                                <span data-i18n="experience.mediaTitle">¿Querés ver más?</span>
-                            </h4>
-                            <p class="mb-4" data-i18n="experience.mediaDesc">Explorá nuestra galería completa de fotos y videos</p>
-                            <div class="flex flex-wrap gap-3">
-                                <a href="https://drive.google.com/drive/folders/1NCeUaIaIEhIWVmnVDCVlW7D6d8XTkXxn?usp=drive_link" 
-                                   target="_blank" 
-                                   class="inline-flex items-center bg-white text-patagonia-blue px-4 py-2 rounded-lg hover:bg-gray-100 transition">
-                                    <i class="fab fa-google-drive mr-2"></i>
-                                    <span data-i18n="experience.photosLink">Galería de Fotos</span>
-                                </a>
-                                <a href="https://drive.google.com/drive/folders/1pnrG7t1lEpDd-2jhxdwYTF37tXW0SOH1?usp=drive_link" 
-                                   target="_blank" 
-                                   class="inline-flex items-center bg-white text-patagonia-blue px-4 py-2 rounded-lg hover:bg-gray-100 transition">
-                                    <i class="fas fa-video mr-2"></i>
-                                    <span data-i18n="experience.videosLink">Videos HD</span>
-                                </a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 
@@ -359,7 +369,8 @@ app.get('/', (c) => {
                         </h3>
                         
                         <!-- Turitop Widget Embed -->
-                        <div class="load-turitop" data-service="P2" data-lang="es" data-embed="box"></div>
+                        <div class="load-turitop widget-spanish" data-service="P2" data-lang="es" data-embed="box"></div>
+                        <div class="load-turitop widget-english hidden" data-service="P2" data-lang="en" data-embed="box"></div>
                         
                         <!-- Fallback iframe si el widget no carga -->
                         <noscript>
@@ -411,6 +422,7 @@ app.get('/', (c) => {
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-800 mb-4" data-i18n="safety.title">Seguridad y Protocolos</h2>
                 <p class="text-xl text-gray-600" data-i18n="safety.subtitle">Tu seguridad es nuestra prioridad</p>
+                <p class="text-lg text-gray-500 mt-2" data-i18n="safety.description">Por cuarta temporada, seguimos siendo el único operador habilitado en la Reserva Provincial Lago del desierto</p>
             </div>
             
             <!-- Safety Hero Image -->
@@ -427,9 +439,9 @@ app.get('/', (c) => {
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Certificaciones</h3>
                     <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Prestador PNLG</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>P.A.T: 2.231</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Guías UIMLA</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Prestador CAP</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>R.P.A.T: 2.231</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>R.N.A.V: 20.311</li>
                     </ul>
                 </div>
                 
@@ -464,8 +476,8 @@ app.get('/', (c) => {
     <section id="seasons" class="py-20 bg-gradient-to-b from-white to-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Aventura Todo el Año</h2>
-                <p class="text-xl text-gray-600">Desde primavera hasta otoño, cada temporada tiene su magia</p>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4" data-i18n="seasons.title">Aventura Todo el Año</h2>
+                <p class="text-xl text-gray-600" data-i18n="seasons.subtitle">Desde primavera hasta otoño, cada temporada tiene su magia</p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8 mb-12">
@@ -475,8 +487,7 @@ app.get('/', (c) => {
                          class="rounded-lg shadow-xl w-full h-80 object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-lg flex items-end">
                         <div class="p-6 text-white">
-                            <h3 class="text-2xl font-bold mb-2">Aventuras Invernales</h3>
-                            <p>Experiencias únicas con paisajes nevados</p>
+                            <h3 class="text-2xl font-bold" data-i18n="seasons.winter">Aventuras Invernales</h3>
                         </div>
                     </div>
                 </div>
@@ -487,8 +498,7 @@ app.get('/', (c) => {
                          class="rounded-lg shadow-xl w-full h-80 object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-lg flex items-end">
                         <div class="p-6 text-white">
-                            <h3 class="text-2xl font-bold mb-2">Guías Expertos</h3>
-                            <p>Profesionales certificados para tu seguridad</p>
+                            <h3 class="text-2xl font-bold" data-i18n="seasons.unique">Experiencias Únicas</h3>
                         </div>
                     </div>
                 </div>
@@ -505,13 +515,13 @@ app.get('/', (c) => {
                 
                 <!-- Enlaces externos -->
                 <div class="mt-6 flex flex-wrap justify-center gap-4">
-                    <a href="https://www.instagram.com/packraftingelchalten" 
+                    <a href="https://www.instagram.com/hiking.tour.chalten" 
                        target="_blank" 
                        class="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
                         <i class="fab fa-instagram mr-2"></i>
-                        <span>@packraftingelchalten</span>
+                        <span>@hiking.tour.chalten</span>
                     </a>
-                    <a href="https://wa.me/5492966XXXXXX" 
+                    <a href="https://wa.me/5492902484140" 
                        target="_blank" 
                        class="inline-flex items-center bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition transform hover:scale-105">
                         <i class="fab fa-whatsapp mr-2"></i>
@@ -554,27 +564,44 @@ app.get('/', (c) => {
                                      class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                             </div>
                             
-                            <!-- Photo 5 -->
+                            <!-- Row 3: 2 photos -->
                             <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
                                 <img src="https://page.gensparksite.com/v1/base64_upload/901b16630c289572a34bc012a86d0fd4" 
                                      alt="Navegando aguas cristalinas" 
                                      class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                             </div>
                             
-                            <!-- Photo 6 -->
                             <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
                                 <img src="https://page.gensparksite.com/v1/base64_upload/4e16fb0b0de94b3ee796b135a5ee5167" 
                                      alt="Equipamiento profesional" 
                                      class="w-full h-48 object-cover hover:scale-110 transition duration-500">
                             </div>
+                            
+                            <!-- Video spanning two columns -->
+                            <div class="col-span-2 relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition">
+                                <video 
+                                    class="w-full h-48 object-cover"
+                                    autoplay 
+                                    muted 
+                                    loop 
+                                    playsinline
+                                    controls>
+                                    <source src="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/0a778588-5631-4b3c-b635-8c8bb61eeb79" type="video/mp4">
+                                    Tu navegador no soporta el elemento de video.
+                                </video>
+                                <div class="absolute top-2 left-2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center">
+                                    <span class="animate-pulse mr-2">•</span>
+                                    MOMENTOS DESTACADOS
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- Right Column: Main Video -->
+                    <!-- Right Column: Main Video Only -->
                     <div class="lg:col-span-1">
                         <div class="sticky top-24">
                             <!-- Main Video -->
-                            <div class="relative rounded-lg overflow-hidden shadow-2xl mb-4">
+                            <div class="relative rounded-lg overflow-hidden shadow-2xl">
                                 <video 
                                     class="w-full h-auto"
                                     autoplay 
@@ -589,24 +616,6 @@ app.get('/', (c) => {
                                 <div class="absolute top-2 left-2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center">
                                     <span class="animate-pulse mr-2">•</span>
                                     EN VIVO
-                                </div>
-                            </div>
-                            
-                            <!-- Secondary Video -->
-                            <div class="relative rounded-lg overflow-hidden shadow-xl">
-                                <video 
-                                    class="w-full h-48 object-cover"
-                                    autoplay 
-                                    muted 
-                                    loop 
-                                    playsinline>
-                                    <source src="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/0a778588-5631-4b3c-b635-8c8bb61eeb79" type="video/mp4">
-                                </video>
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <p class="text-white text-sm font-semibold">
-                                        <i class="fas fa-route mr-1"></i>
-                                        Momentos destacados
-                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -662,75 +671,31 @@ app.get('/', (c) => {
             <div class="mt-12 text-center bg-gradient-to-r from-patagonia-blue to-patagonia-green p-8 rounded-lg">
                 <h3 class="text-2xl font-bold text-white mb-4">
                     <i class="fas fa-camera mr-2"></i>
-                    ¿Querés aparecer en nuestra galería?
+                    <span data-i18n="gallery.ctaTitle">¿Querés aparecer en nuestra galería?</span>
                 </h3>
-                <p class="text-white mb-6">
+                <p class="text-white mb-6" data-i18n="gallery.ctaText">
                     Cada aventura es única y tus fotos podrían inspirar a otros aventureros.
                     ¡Compartimos las mejores capturas en nuestras redes!
                 </p>
                 <a href="#experience" 
                    class="inline-block bg-white text-patagonia-blue px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition transform hover:scale-105">
                     <i class="fas fa-rocket mr-2"></i>
-                    VIVI TU AVENTURA
+                    <span data-i18n="gallery.ctaButton">VIVI TU AVENTURA</span>
                 </a>
             </div>
         </div>
     </section>
     
-    <!-- Instagram Feed Section -->
-    <section id="instagram" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">
-                    <i class="fab fa-instagram mr-2 text-purple-600"></i>
-                    Seguinos en Instagram
-                </h2>
-                <p class="text-xl text-gray-600">@packraftingelchalten - Actualizaciones en tiempo real</p>
-            </div>
-            
-            <!-- Instagram Feed Widget -->
-            <div class="max-w-6xl mx-auto">
-                <!-- Instagram Feed Script -->
-                <script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
-                <div id="instafeed" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
-                
-                <!-- Fallback Instagram Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="instagram-static">
-                    <a href="https://www.instagram.com/packraftingelchalten" target="_blank" class="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img src="https://page.gensparksite.com/v1/base64_upload/415d3394dd5f0c748694368bd91683fc" 
-                             alt="Instagram Post" 
-                             class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <div class="text-white">
-                                <i class="fas fa-heart mr-2"></i>124
-                                <i class="fas fa-comment ml-4 mr-2"></i>8
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Más posts estáticos como fallback -->
-                </div>
-                
-                <div class="text-center mt-8">
-                    <a href="https://www.instagram.com/packraftingelchalten" 
-                       target="_blank" 
-                       class="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-lg hover:shadow-lg transition transform hover:scale-105">
-                        <i class="fab fa-instagram mr-2"></i>
-                        Ver más en Instagram
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- Google Reviews Section -->
     <section id="reviews" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">
                     <i class="fab fa-google mr-2 text-blue-600"></i>
-                    Lo que dicen nuestros aventureros
+                    <span data-i18n="reviews.title">Lo que dicen nuestros aventureros</span>
                 </h2>
-                <p class="text-xl text-gray-600">Reseñas verificadas de Google</p>
+                <p class="text-xl text-gray-600" data-i18n="reviews.subtitle">Reseñas verificadas de Google</p>
                 <div class="flex justify-center items-center mt-4">
                     <div class="flex text-yellow-400 text-2xl">
                         <i class="fas fa-star"></i>
@@ -740,20 +705,19 @@ app.get('/', (c) => {
                         <i class="fas fa-star"></i>
                     </div>
                     <span class="ml-2 text-xl font-bold">5.0</span>
-                    <span class="ml-2 text-gray-600">(47 reseñas)</span>
                 </div>
             </div>
             
-            <!-- Reviews Grid -->
+            <!-- Reviews Grid - Real Google Reviews -->
             <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <!-- Review 1 -->
+                <!-- Review 1 - Erika Prieto -->
                 <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                     <div class="flex items-center mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Maria+Rodriguez&background=4A90E2&color=fff" 
-                             alt="Maria Rodriguez" 
-                             class="w-12 h-12 rounded-full mr-3">
+                        <div class="w-12 h-12 rounded-full mr-3 bg-green-500 flex items-center justify-center text-white text-xl font-bold">
+                            E
+                        </div>
                         <div>
-                            <h4 class="font-semibold">María Rodriguez</h4>
+                            <h4 class="font-semibold">Erika Prieto</h4>
                             <div class="flex text-yellow-400 text-sm">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -764,44 +728,51 @@ app.get('/', (c) => {
                         </div>
                     </div>
                     <p class="text-gray-700 mb-2">
-                        "Experiencia inolvidable! Alexander es un guía excepcional, muy profesional y atento. 
-                        Las vistas del Fitz Roy desde el río son espectaculares. 100% recomendado!"
+                        "Excelente todo! Hicimos packrafting. Super atentos, amables y pacientes. Recomiendo al 100%, es una experiencia única 🤩"
                     </p>
-                    <p class="text-sm text-gray-500">Hace 2 semanas</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fab fa-google mr-1"></i>
+                        <span>Reseña de Google</span>
+                    </div>
                 </div>
                 
-                <!-- Review 2 -->
+                <!-- Review 2 - Steph -->
                 <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                     <div class="flex items-center mb-4">
-                        <img src="https://ui-avatars.com/api/?name=John+Smith&background=2F5233&color=fff" 
-                             alt="John Smith" 
-                             class="w-12 h-12 rounded-full mr-3">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/03dfdbb3b73f75164a1ab0ae758c5d51" 
+                             alt="Steph" 
+                             class="w-12 h-12 rounded-full mr-3 object-cover">
                         <div>
-                            <h4 class="font-semibold">John Smith</h4>
-                            <div class="flex text-yellow-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <h4 class="font-semibold">Steph</h4>
+                            <div class="flex items-center">
+                                <div class="flex text-yellow-400 text-sm mr-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500">Local Guide</span>
                             </div>
                         </div>
                     </div>
                     <p class="text-gray-700 mb-2">
-                        "Best adventure in Patagonia! Safe, professional, and breathtaking views. 
-                        The equipment is top quality and the guide speaks perfect English. Highly recommend!"
+                        "I spent an excellent few hours with Alex Pakrafting. I loved the concept as well as the versatility of the kayaks and the excellent tips Alex gave me. If you want to do something more bespoke than the large group trips, I highly recommend this. I only wish it had been longer, it was over far too soon"
                     </p>
-                    <p class="text-sm text-gray-500">Hace 1 mes</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fab fa-google mr-1"></i>
+                        <span>Reseña de Google</span>
+                    </div>
                 </div>
                 
-                <!-- Review 3 -->
+                <!-- Review 3 - William Palmer -->
                 <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                     <div class="flex items-center mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Lucas+Fernandez&background=F97316&color=fff" 
-                             alt="Lucas Fernandez" 
-                             class="w-12 h-12 rounded-full mr-3">
+                        <div class="w-12 h-12 rounded-full mr-3 bg-purple-600 flex items-center justify-center text-white text-xl font-bold">
+                            W
+                        </div>
                         <div>
-                            <h4 class="font-semibold">Lucas Fernández</h4>
+                            <h4 class="font-semibold">William Palmer</h4>
                             <div class="flex text-yellow-400 text-sm">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -812,101 +783,22 @@ app.get('/', (c) => {
                         </div>
                     </div>
                     <p class="text-gray-700 mb-2">
-                        "La mejor actividad que hice en El Chaltén. El packrafting es increíble y el paisaje 
-                        es de otro mundo. Alexander hace que todo sea seguro y divertido. ¡Volveré!"
+                        "Amazing experience! Alex was an incredible guide, he explained everything, gave us tips and made the experience really enjoyable. He is also very knowledgeable about Patagonia, delivering more than a conventional tour.<br><br>We totally recommend contacting him if you are visiting El Chalten."
                     </p>
-                    <p class="text-sm text-gray-500">Hace 3 semanas</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fab fa-google mr-1"></i>
+                        <span>Reseña de Google</span>
+                    </div>
                 </div>
             </div>
             
             <!-- Google Reviews Button -->
             <div class="text-center mt-8">
-                <a href="https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review" 
+                <a href="https://share.google/CBiCH7SWnbf5xdjQt" 
                    target="_blank" 
                    class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
                     <i class="fab fa-google mr-2"></i>
                     Ver todas las reseñas en Google
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Corporate Clients Section -->
-    <section id="corporate" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">
-                    <i class="fas fa-building mr-2 text-patagonia-blue"></i>
-                    Empresas que confían en nosotros
-                </h2>
-                <p class="text-xl text-gray-600">Team building y experiencias corporativas en la Patagonia</p>
-            </div>
-            
-            <!-- Corporate Logos Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center max-w-5xl mx-auto mb-12">
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/150x80/4A90E2/ffffff?text=Empresa+1" 
-                         alt="Empresa 1" 
-                         class="w-full h-auto grayscale hover:grayscale-0 transition">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/150x80/2F5233/ffffff?text=Empresa+2" 
-                         alt="Empresa 2" 
-                         class="w-full h-auto grayscale hover:grayscale-0 transition">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/150x80/F97316/ffffff?text=Empresa+3" 
-                         alt="Empresa 3" 
-                         class="w-full h-auto grayscale hover:grayscale-0 transition">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/150x80/8B5CF6/ffffff?text=Empresa+4" 
-                         alt="Empresa 4" 
-                         class="w-full h-auto grayscale hover:grayscale-0 transition">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/150x80/059669/ffffff?text=Empresa+5" 
-                         alt="Empresa 5" 
-                         class="w-full h-auto grayscale hover:grayscale-0 transition">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/150x80/DC2626/ffffff?text=Empresa+6" 
-                         alt="Empresa 6" 
-                         class="w-full h-auto grayscale hover:grayscale-0 transition">
-                </div>
-            </div>
-            
-            <!-- Corporate Benefits -->
-            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="text-center">
-                    <div class="bg-patagonia-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-users text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Team Building</h3>
-                    <p class="text-gray-600">Fortalecé el trabajo en equipo con una experiencia única en la naturaleza</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-patagonia-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-award text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Incentivos</h3>
-                    <p class="text-gray-600">Premiá a tu equipo con una aventura inolvidable en la Patagonia</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-orange-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-handshake text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Eventos Corporativos</h3>
-                    <p class="text-gray-600">Organizamos experiencias a medida para grupos empresariales</p>
-                </div>
-            </div>
-            
-            <!-- Corporate CTA -->
-            <div class="text-center mt-12">
-                <a href="#contact" 
-                   class="inline-flex items-center bg-patagonia-blue text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition transform hover:scale-105">
-                    <i class="fas fa-envelope mr-2"></i>
-                    Consultá por grupos corporativos
                 </a>
             </div>
         </div>
@@ -982,17 +874,29 @@ app.get('/', (c) => {
                         </div>
                     </div>
                     
-                    <div class="bg-gradient-to-r from-patagonia-blue to-patagonia-green p-6 rounded-lg text-white">
+                    <div class="bg-gradient-to-r from-patagonia-blue to-patagonia-green p-6 rounded-lg text-white mb-4">
                         <h3 class="text-xl font-semibold mb-4">
                             <i class="fas fa-calendar-check mr-2"></i>
-                            Reservá tu experiencia
+                            <span data-i18n="contact.reserveTitle">Reservá tu experiencia</span>
                         </h3>
-                        <p class="mb-4">Las reservas se realizan directamente en la sección "La Experiencia" donde encontrarás el calendario completo con disponibilidad en tiempo real.</p>
+                        <p class="mb-4" data-i18n="contact.reserveText">Las reservas se realizan directamente en la sección "La Experiencia" donde encontrarás el calendario completo con disponibilidad en tiempo real.</p>
                         <a href="#experience" 
                            class="inline-block bg-white text-patagonia-blue px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
                             <i class="fas fa-arrow-up mr-2"></i>
-                            IR A RESERVAR
+                            <span data-i18n="contact.goToReserve">IR A RESERVAR</span>
                         </a>
+                    </div>
+                    
+                    <div class="bg-patagonia-blue p-4 rounded-lg text-white">
+                        <h4 class="text-lg font-semibold mb-3">
+                            <i class="fas fa-briefcase mr-2"></i>
+                            <span data-i18n="contact.b2bTitle">Servicios B2B</span>
+                        </h4>
+
+                        <button onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})" 
+                           class="w-full bg-white text-patagonia-blue px-4 py-2 rounded font-semibold hover:bg-gray-100 transition text-sm">
+                            <span data-i18n="contact.b2bButton">Consultá por Servicios B2B</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1005,13 +909,13 @@ app.get('/', (c) => {
             <div class="mb-4">
                 <img src="https://page.gensparksite.com/v1/base64_upload/b318b0865758a4172d61ba8b693d8e41" 
                      alt="Hiking Tour Packrafting" 
-                     class="h-20 mx-auto mb-2 brightness-0 invert">
+                     class="h-20 mx-auto mb-2">
             </div>
             <p class="text-sm text-gray-400 mb-2">
                 © 2024 Packrafting El Chaltén. Todos los derechos reservados.
             </p>
             <p class="text-sm text-gray-400">
-                Operado por Hiking Tour El Chaltén | CUIT: 20-34816054-1 | PAT: 2.231
+                Operado por Hiking Tour El Chaltén | R.P.A.T: 2.231 | R.N.A.V: 20.311
             </p>
         </div>
     </footer>
@@ -1082,13 +986,27 @@ app.get('/', (c) => {
             document.documentElement.lang = lang;
             loadTranslations(lang);
             
-            // Update Turitop widget language
-            const turitopWidget = document.querySelector('.load-turitop');
-            if (turitopWidget) {
-                turitopWidget.setAttribute('data-lang', lang);
-                // Reload widget with new language if needed
-                if (typeof window.TuritopApp !== 'undefined') {
-                    // Widget will auto-reload with new language
+            // Toggle between Spanish and English widgets
+            const spanishWidget = document.querySelector('.widget-spanish');
+            const englishWidget = document.querySelector('.widget-english');
+            
+            if (lang === 'en') {
+                if (spanishWidget) spanishWidget.classList.add('hidden');
+                if (englishWidget) {
+                    englishWidget.classList.remove('hidden');
+                    // Trigger Turitop reload for English widget if needed
+                    if (typeof window.TuritopApp !== 'undefined' && window.TuritopApp.init) {
+                        setTimeout(() => window.TuritopApp.init(), 100);
+                    }
+                }
+            } else {
+                if (englishWidget) englishWidget.classList.add('hidden');
+                if (spanishWidget) {
+                    spanishWidget.classList.remove('hidden');
+                    // Trigger Turitop reload for Spanish widget if needed
+                    if (typeof window.TuritopApp !== 'undefined' && window.TuritopApp.init) {
+                        setTimeout(() => window.TuritopApp.init(), 100);
+                    }
                 }
             }
         }
@@ -1196,8 +1114,43 @@ app.get('/', (c) => {
             feed.run();
         }
         
+        // Parallax effect for hero section
+        function initParallax() {
+            const parallaxElements = document.querySelectorAll('[data-parallax]');
+            
+            function handleParallax() {
+                const scrolled = window.pageYOffset;
+                
+                parallaxElements.forEach(element => {
+                    const speed = element.dataset.parallax || 0.2;
+                    const yPos = -(scrolled * speed);
+                    
+                    // Apply only translation, no scale to maintain maximum quality
+                    element.style.transform = \`translateY(\${yPos}px)\`;
+                });
+            }
+            
+            // Add scroll listener with throttling for performance
+            let ticking = false;
+            function updateParallax() {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        handleParallax();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', updateParallax);
+            handleParallax(); // Initial call
+        }
+        
         // Ensure videos play automatically
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize parallax
+            initParallax();
+            
             const videos = document.querySelectorAll('video');
             videos.forEach(video => {
                 video.muted = true;

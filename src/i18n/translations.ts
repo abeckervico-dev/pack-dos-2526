@@ -10,8 +10,8 @@ export const translations = {
       book: 'Reservar Ahora',
     },
     hero: {
-      title: 'PACKRAFTING EL CHALTÉN',
-      subtitle: 'Donde el río te llama por tu nombre',
+      title: 'PACKRAFTING',
+      title2: 'EL CHALTÉN',
       description: 'El Fitz Roy te observa mientras remas hacia tu próxima gran historia',
       cta1: 'RESERVAR AHORA',
       cta2: 'VER GALERÍA',
@@ -20,22 +20,35 @@ export const translations = {
       title: 'La Experiencia',
       subtitle: 'Una aventura única en la Patagonia argentina',
       intro: 'Combinamos packrafting y trekking en un escenario de ensueño',
-      description: `Te invitamos a unirte a una aventura emocionante que te permitirá navegar en packraft por el río de las Vueltas, disfrutando de impresionantes vistas panorámicas de las montañas de El Chaltén. Nuestros botes inflables y fáciles de transportar nos permitirán también hacer un trekking por el bosque y explorar la naturaleza a nuestro alrededor.`,
+      description: `Imaginate remando por aguas cristalinas mientras el viento patagónico acaricia tu rostro y el Fitz Roy se alza majestuoso en el horizonte. No es solo una actividad, es tu conexión íntima con la Patagonia salvaje.`,
+      includes: 'Tu aventura incluye:',
+      include1: 'Packraft de expedición',
+      include2: 'Equipo completo de seguridad',
+      include3: 'Guías locales certificados',
+      include4: 'Snack patagónico',
+      include5: 'Transporte desde El Chaltén',
+      bookingTitle: 'Reservá tu aventura',
+      secure: 'Pago Seguro',
+      cancellation: 'Cancelación Flexible',
+      support: 'Soporte 24/7',
+      season: 'Temporada',
+      seasonValue: 'Octubre - Abril',
+      level: 'Dificultad',
+      levelValue: 'Moderada',
       highlights: {
-        title: 'Lo que incluye:',
+        title: 'Tu aventura incluye:',
         items: [
-          'Todo el equipo técnico necesario (packraft, remo, chaleco salvavidas, traje seco)',
-          'Guía certificado UIMLA bilingüe',
-          'Seguro de accidentes personales',
-          'Snack en Camping Río de las Vueltas',
-          'Briefing de seguridad y técnicas de remo',
-          'Uso de vestuarios y baños',
+          'Packraft de expedición',
+          'Equipo completo de seguridad',
+          'Guías locales certificados',
+          'Snack patagónico',
+          'Transporte desde El Chaltén',
         ]
       },
       duration: {
-        title: 'Duración y Dificultad',
-        time: '4 horas aproximadamente',
-        difficulty: 'Dificultad media - Apto para principiantes',
+        title: 'Duración',
+        time: '5 horas de pura aventura',
+        difficulty: '1,5 horas de remada',
         minimum: 'Edad mínima: 14 años (acompañados por adultos)',
         requirement: 'Requisito: Saber nadar',
       },
@@ -49,13 +62,13 @@ export const translations = {
     safety: {
       title: 'Seguridad y Protocolos',
       subtitle: 'Tu seguridad es nuestra prioridad',
+      description: 'Por cuarta temporada, seguimos siendo el único operador habilitado en la Reserva Provincial Lago del desierto',
       certifications: {
-        title: 'Certificaciones y Habilitaciones',
+        title: 'Certificaciones',
         items: [
-          'Prestador habilitado por Parque Nacional Los Glaciares',
-          'Prestador de Turismo Aventura Santa Cruz (P.A.T: 2.231)',
-          'Guías certificados UIMLA con formación en primeros auxilios',
-          'Protocolos de seguridad auditados y aprobados',
+          'Prestador CAP',
+          'R.P.A.T: 2.231',
+          'R.N.A.V: 20.311',
         ]
       },
       equipment: {
@@ -82,6 +95,19 @@ export const translations = {
     gallery: {
       title: 'Galería de Aventuras',
       subtitle: 'Momentos inolvidables en la Patagonia',
+      ctaTitle: '¿Querés aparecer en nuestra galería?',
+      ctaText: 'Cada aventura es única y tus fotos podrían inspirar a otros aventureros. ¡Compartimos las mejores capturas en nuestras redes!',
+      ctaButton: 'VIVI TU AVENTURA',
+    },
+    seasons: {
+      title: 'Aventura Todo el Año',
+      subtitle: 'Desde primavera hasta otoño, cada temporada tiene su magia',
+      winter: 'Aventuras Invernales',
+      unique: 'Experiencias Únicas',
+    },
+    reviews: {
+      title: 'Lo que dicen nuestros aventureros',
+      subtitle: 'Reseñas verificadas de Google',
     },
     faq: {
       title: 'Preguntas Frecuentes',
@@ -102,10 +128,7 @@ export const translations = {
           q: '¿Qué pasa si hay mal clima?',
           a: 'La seguridad es nuestra prioridad. Si las condiciones no son seguras, reprogramamos la actividad o realizamos el reembolso completo.',
         },
-        {
-          q: '¿Incluye transporte desde El Chaltén?',
-          a: 'El servicio base no incluye transporte. Podemos coordinar transporte privado con costo adicional o pueden encontrarnos en el punto de inicio.',
-        },
+
         {
           q: '¿Puedo llevar cámara o celular?',
           a: 'Sí, recomendamos llevar cámaras con correa de seguridad y fundas impermeables. No nos responsabilizamos por equipos electrónicos dañados.',
@@ -115,6 +138,12 @@ export const translations = {
     contact: {
       title: 'Contacto y Reservas',
       subtitle: 'Estamos aquí para hacer tu aventura realidad',
+      reserveTitle: 'Reservá tu experiencia',
+      reserveText: 'Las reservas se realizan directamente en la sección "La Experiencia" donde encontrarás el calendario completo con disponibilidad en tiempo real.',
+      goToReserve: 'IR A RESERVAR',
+      b2bTitle: 'Servicios B2B',
+      b2bText: '',
+      b2bButton: 'Consultá por Servicios B2B',
       form: {
         name: 'Nombre completo',
         email: 'Correo electrónico',
@@ -154,8 +183,8 @@ export const translations = {
       book: 'Book Now',
     },
     hero: {
-      title: 'PACKRAFTING EL CHALTÉN',
-      subtitle: 'Where the river calls your name',
+      title: 'PACKRAFTING',
+      title2: 'EL CHALTÉN',
       description: 'Fitz Roy watches as you paddle into your next great story',
       cta1: 'BOOK NOW',
       cta2: 'VIEW GALLERY',
@@ -164,22 +193,35 @@ export const translations = {
       title: 'The Experience',
       subtitle: 'A unique adventure in Argentine Patagonia',
       intro: 'We combine packrafting and trekking in a dreamlike setting',
-      description: `Join us for an exciting adventure that will allow you to navigate the Río de las Vueltas by packraft, enjoying stunning panoramic views of El Chaltén's mountains. Our inflatable and easy-to-carry boats will also allow us to trek through the forest and explore the surrounding nature.`,
+      description: `Imagine paddling through crystal-clear waters while the Patagonian wind caresses your face and Fitz Roy rises majestically on the horizon. It's not just an activity, it's your intimate connection with wild Patagonia.`,
+      includes: 'Your adventure includes:',
+      include1: 'Expedition packraft',
+      include2: 'Complete safety equipment',
+      include3: 'Certified local guides',
+      include4: 'Patagonian snack',
+      include5: 'Transportation from El Chaltén',
+      bookingTitle: 'Book your adventure',
+      secure: 'Secure Payment',
+      cancellation: 'Flexible Cancellation',
+      support: '24/7 Support',
+      season: 'Season',
+      seasonValue: 'October - April',
+      level: 'Difficulty',
+      levelValue: 'Moderate',
       highlights: {
-        title: 'What\'s included:',
+        title: 'Your adventure includes:',
         items: [
-          'All necessary technical equipment (packraft, paddle, life jacket, dry suit)',
-          'Certified UIMLA bilingual guide',
-          'Personal accident insurance',
-          'Snack at Río de las Vueltas Campsite',
-          'Safety briefing and paddling techniques',
-          'Use of changing rooms and restrooms',
+          'Expedition packraft',
+          'Complete safety equipment',
+          'Certified local guides',
+          'Patagonian snack',
+          'Transportation from El Chaltén',
         ]
       },
       duration: {
-        title: 'Duration and Difficulty',
-        time: 'Approximately 4 hours',
-        difficulty: 'Medium difficulty - Suitable for beginners',
+        title: 'Duration',
+        time: '5 hours of pure adventure',
+        difficulty: '1.5 hours of paddling',
         minimum: 'Minimum age: 14 years (accompanied by adults)',
         requirement: 'Requirement: Must know how to swim',
       },
@@ -193,13 +235,13 @@ export const translations = {
     safety: {
       title: 'Safety and Protocols',
       subtitle: 'Your safety is our priority',
+      description: 'For the fourth season, we remain the only authorized operator in the Lago del Desierto Provincial Reserve',
       certifications: {
-        title: 'Certifications and Licenses',
+        title: 'Certifications',
         items: [
-          'Licensed provider by Los Glaciares National Park',
-          'Adventure Tourism Provider Santa Cruz (P.A.T: 2.231)',
-          'UIMLA certified guides with first aid training',
-          'Audited and approved safety protocols',
+          'CAP Provider',
+          'R.P.A.T: 2.231',
+          'R.N.A.V: 20.311',
         ]
       },
       equipment: {
@@ -226,6 +268,19 @@ export const translations = {
     gallery: {
       title: 'Adventure Gallery',
       subtitle: 'Unforgettable moments in Patagonia',
+      ctaTitle: 'Want to appear in our gallery?',
+      ctaText: 'Every adventure is unique and your photos could inspire other adventurers. We share the best captures on our networks!',
+      ctaButton: 'LIVE YOUR ADVENTURE',
+    },
+    seasons: {
+      title: 'Year-Round Adventure',
+      subtitle: 'From spring to autumn, each season has its magic',
+      winter: 'Winter Adventures',
+      unique: 'Unique Experiences',
+    },
+    reviews: {
+      title: 'What our adventurers say',
+      subtitle: 'Verified Google Reviews',
     },
     faq: {
       title: 'Frequently Asked Questions',
@@ -246,10 +301,7 @@ export const translations = {
           q: 'What happens if there\'s bad weather?',
           a: 'Safety is our priority. If conditions are not safe, we reschedule the activity or provide a full refund.',
         },
-        {
-          q: 'Does it include transportation from El Chaltén?',
-          a: 'The base service does not include transportation. We can arrange private transport for an additional cost or you can meet us at the starting point.',
-        },
+
         {
           q: 'Can I bring a camera or phone?',
           a: 'Yes, we recommend bringing cameras with safety straps and waterproof cases. We are not responsible for damaged electronic equipment.',
@@ -257,8 +309,14 @@ export const translations = {
       ]
     },
     contact: {
-      title: 'Ready to write your Patagonian story?',
-      subtitle: 'The best moments of your life are just a paddle stroke away',
+      title: 'Contact and Reservations',
+      subtitle: 'We\'re here to make your adventure come true',
+      reserveTitle: 'Book your experience',
+      reserveText: 'Reservations are made directly in "The Experience" section where you\'ll find the complete calendar with real-time availability.',
+      goToReserve: 'GO TO BOOK',
+      b2bTitle: 'B2B Services',
+      b2bText: '',
+      b2bButton: 'Inquire about B2B Services',
       form: {
         name: 'Full name',
         email: 'Email address',
