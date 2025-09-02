@@ -11,8 +11,8 @@
 - Copy de marketing enfocado en experiencia auténtica patagónica
 
 ## URLs de Acceso
-- **Producción**: https://packrafting-elchalten.pages.dev (pendiente deploy)
-- **Desarrollo**: https://3000-ibsupbn1lt9f5yzdu36xl-6532622b.e2b.dev
+- **Producción**: https://hikingtour.tur.ar ✅ (ACTIVO)
+- **Cloudflare Pages**: https://packrafting-elchalten.pages.dev ✅
 - **GitHub**: https://github.com/[usuario]/packrafting-elchalten (pendiente)
 
 ## Arquitectura de Datos
@@ -28,7 +28,10 @@
    - Hero image con efecto parallax
    - Grid responsivo de imágenes
 4. **Reseñas reales de Google**: Integradas del perfil de Hiking Tour El Chaltén
-5. **Servicios B2B**: Botón integrado en formulario de contacto
+5. **Servicios B2B**: 
+   - Dossiers comerciales bilingües integrados
+   - Enlaces dinámicos según idioma seleccionado
+   - Apertura en nueva pestaña para experiencia fluida
 6. **Diseño responsive**: Optimizado para todos los dispositivos
 7. **Navegación suave**: Scroll smooth entre secciones
 8. **Información actualizada**: 
@@ -46,6 +49,8 @@
 - `/#gallery` - Galería multimedia
 - `/#faq` - Preguntas frecuentes
 - `/#contact` - Información de contacto
+- `/dossier-comercial-es.html` - Dossier comercial B2B en español
+- `/commercial-dossier-en.html` - Commercial dossier B2B in English
 
 ### API Endpoints
 - `/api/translations/es` - Traducciones en español
@@ -107,8 +112,9 @@
 ## Configuración de Deployment
 - **Plataforma**: Cloudflare Pages
 - **Branch de producción**: main
-- **Estado**: ✅ Listo para deploy
-- **Última actualización**: 29/08/2025
+- **Estado**: ✅ ACTIVO EN PRODUCCIÓN
+- **Dominio personalizado**: hikingtour.tur.ar (DNS propagado)
+- **Última actualización**: 02/09/2025
 
 ## Notas Técnicas
 - Widget Turitop configurado con company="H407" y service="P2"
