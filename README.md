@@ -23,6 +23,7 @@
 - **Flujo de datos**: Widget Turitop maneja reservas, pagos y disponibilidad externamente
 
 ## Funcionalidades Completadas ✅
+0. **Imagen hero actualizada**: Usando 6.jpg del repositorio portada de GitHub
 1. **Widgets de reservas Turitop bilingües**: Dos widgets separados (ES/EN) que se alternan según idioma
 2. **Sistema i18n completo**: 100% del sitio traducido, incluyendo menús, botones y contenido dinámico
 3. **Galería multimedia HD**: 
