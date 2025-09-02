@@ -34,14 +34,14 @@ app.get('/api/translations/:lang', (c) => {
   return c.json(translations[validLang])
 })
 
-// Serve B2B Dossier in Spanish
+// Serve B2B Dossier in Spanish - GitHub Pages
 app.get('/dossier-es', (c) => {
-  return c.redirect('https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/eeb25a27-7fe2-4d58-bff5-ffb1c80454f8')
+  return c.redirect('https://abeckervico-dev.github.io/pack-dos-2526/Dosier%20Comercial%20-%20Packrafting%20El%20Chalt%C3%A9n%20espa%C3%B1ol.htm')
 })
 
-// Serve B2B Dossier in English
+// Serve B2B Dossier in English - GitHub Pages
 app.get('/dossier-en', (c) => {
-  return c.redirect('https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/30f3461e-aa71-4b4f-817f-a657cb972a83')
+  return c.redirect('https://abeckervico-dev.github.io/pack-dos-2526/Commercial%20Dossier%20-%20Packrafting%20El%20Chalt%C3%A9n%20ingles.htm')
 })
 
 // Main HTML route
