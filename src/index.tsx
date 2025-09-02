@@ -12,6 +12,9 @@ app.use('/api/*', cors())
 app.use('/static/*', serveStatic({ root: './public' }))
 app.use('/favicon.ico', serveStatic({ path: './public/favicon.ico' }))
 
+// Serve all public files including B2B dossiers
+app.use('/*', serveStatic({ root: './public' }))
+
 // API endpoint for contact form
 app.post('/api/contact', async (c) => {
   const body = await c.req.json()

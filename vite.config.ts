@@ -12,6 +12,12 @@ export default defineConfig({
     })
   ],
   build: {
-    outDir: 'dist'
-  }
+    outDir: 'dist',
+    rollupOptions: {
+      output: {
+        preserveModules: false
+      }
+    }
+  },
+  publicDir: 'public'
 })
