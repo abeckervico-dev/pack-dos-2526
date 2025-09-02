@@ -271,14 +271,14 @@ app.get('/', (c) => {
                     </iframe>
                 </div>
                 
-                <!-- Overlay oscuro para mejorar legibilidad del texto -->
-                <div class="absolute inset-0 bg-black/50 z-10"></div>
+                <!-- Overlay muy suave para mejorar legibilidad sin ocultar el video -->
+                <div class="absolute inset-0 bg-black/20 z-10"></div>
             </div>
         </div>
         
         <!-- Content -->
         <div class="relative z-20 text-center text-white px-4 fade-in mt-20">
-            <div class="bg-black/40 p-8 rounded-xl max-w-4xl mx-auto">
+            <div class="bg-black/30 backdrop-blur-sm p-8 rounded-xl max-w-4xl mx-auto">
                 <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-wider" 
                     style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" 
                     data-i18n="hero.title">
