@@ -251,11 +251,11 @@ app.get('/', (c) => {
             
             <!-- Hero Video Background from YouTube -->
             <div class="absolute inset-0 z-10 overflow-hidden bg-black">
-                <!-- YouTube Video Embed - PENDIENTE: Reemplazar VIDEO_ID con el ID real del video -->
+                <!-- YouTube Video Embed - Packrafting El Chaltén -->
                 <div class="absolute inset-0 w-full h-full">
                     <iframe 
                         id="hero-video"
-                        src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&playlist=VIDEO_ID"
+                        src="https://www.youtube.com/embed/tBe7LSnO2Dk?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&playlist=tBe7LSnO2Dk"
                         class="absolute inset-0 w-full h-full"
                         style="width: 100vw; 
                                height: 56.25vw; 
