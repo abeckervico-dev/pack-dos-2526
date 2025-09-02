@@ -34,6 +34,16 @@ app.get('/api/translations/:lang', (c) => {
   return c.json(translations[validLang])
 })
 
+// Serve B2B Dossier in Spanish
+app.get('/dossier-es', (c) => {
+  return c.redirect('https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/eeb25a27-7fe2-4d58-bff5-ffb1c80454f8')
+})
+
+// Serve B2B Dossier in English
+app.get('/dossier-en', (c) => {
+  return c.redirect('https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/30f3461e-aa71-4b4f-817f-a657cb972a83')
+})
+
 // Main HTML route
 app.get('/', (c) => {
   const html = `
@@ -893,7 +903,7 @@ app.get('/', (c) => {
                             <span data-i18n="contact.b2bTitle">Servicios B2B</span>
                         </h4>
 
-                        <a href="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/eeb25a27-7fe2-4d58-bff5-ffb1c80454f8" 
+                        <a href="/dossier-es" 
                            target="_blank" 
                            rel="noopener"
                            id="b2b-button"
@@ -996,9 +1006,7 @@ app.get('/', (c) => {
             // Update B2B button link based on language
             const b2bButton = document.getElementById('b2b-button');
             if (b2bButton) {
-                b2bButton.href = lang === 'en' 
-                    ? 'https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/30f3461e-aa71-4b4f-817f-a657cb972a83'
-                    : 'https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/eeb25a27-7fe2-4d58-bff5-ffb1c80454f8';
+                b2bButton.href = lang === 'en' ? '/dossier-en' : '/dossier-es';
             }
             
             if (lang === 'en') {
