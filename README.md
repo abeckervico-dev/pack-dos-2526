@@ -13,7 +13,9 @@
 ## URLs de Acceso
 - **Producción**: https://hikingtour.tur.ar (pendiente DNS)
 - **Cloudflare Pages**: https://packrafting-elchalten.pages.dev ✅
-- **GitHub**: https://github.com/abeckervico-dev/Dosier-2025 ✅
+- **GitHub**: https://github.com/abeckervico-dev/pack-dos-2526 ✅
+- **Dossier Español**: https://abeckervico-dev.github.io/pack-dos-2526/Dosier%20Comercial%20-%20Packrafting%20El%20Chalt%C3%A9n%20espa%C3%B1ol.htm ✅
+- **Dossier Inglés**: https://abeckervico-dev.github.io/pack-dos-2526/Commercial%20Dossier%20-%20Packrafting%20El%20Chalt%C3%A9n%20ingles.htm ✅
 
 ## Arquitectura de Datos
 - **Modelo de datos**: Website estático con contenido dinámico vía JavaScript
@@ -29,10 +31,11 @@
    - Grid responsivo de imágenes
 4. **Reseñas reales de Google**: Integradas del perfil de Hiking Tour El Chaltén
 5. **Servicios B2B**: 
-   - Dossiers comerciales bilingües con redirects a documentos externos
+   - Dossiers comerciales bilingües alojados en GitHub Pages
    - Enlaces dinámicos según idioma seleccionado (/dossier-es y /dossier-en)
+   - Redirects automáticos a páginas HTML en GitHub Pages
    - Apertura en nueva pestaña para experiencia fluida
-   - Integración con GitHub repository Dosier-2025
+   - Integración con GitHub repository pack-dos-2526
 6. **Diseño responsive**: Optimizado para todos los dispositivos
 7. **Navegación suave**: Scroll smooth entre secciones
 8. **Información actualizada**: 
@@ -50,8 +53,8 @@
 - `/#gallery` - Galería multimedia
 - `/#faq` - Preguntas frecuentes
 - `/#contact` - Información de contacto
-- `/dossier-es` - Dossier comercial B2B en español (redirect a documento externo)
-- `/dossier-en` - Commercial dossier B2B in English (redirect to external document)
+- `/dossier-es` - Dossier comercial B2B en español (redirect a GitHub Pages)
+- `/dossier-en` - Commercial dossier B2B in English (redirect to GitHub Pages)
 
 ### API Endpoints
 - `/api/translations/es` - Traducciones en español
@@ -116,7 +119,7 @@
 - **Estado**: ✅ ACTIVO EN PRODUCCIÓN
 - **Dominio personalizado**: hikingtour.tur.ar (DNS propagado)
 - **Última actualización**: 02/09/2025
-- **GitHub Repository**: abeckervico-dev/Dosier-2025
+- **GitHub Repository**: abeckervico-dev/pack-dos-2526
 
 ## Notas Técnicas
 - Widget Turitop configurado con company="H407" y service="P2"
