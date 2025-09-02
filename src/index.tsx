@@ -893,10 +893,13 @@ app.get('/', (c) => {
                             <span data-i18n="contact.b2bTitle">Servicios B2B</span>
                         </h4>
 
-                        <button onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})" 
-                           class="w-full bg-white text-patagonia-blue px-4 py-2 rounded font-semibold hover:bg-gray-100 transition text-sm">
+                        <a href="/dossier-comercial-es.html" 
+                           target="_blank" 
+                           rel="noopener"
+                           id="b2b-button"
+                           class="block w-full bg-white text-patagonia-blue px-4 py-2 rounded font-semibold hover:bg-gray-100 transition text-sm text-center">
                             <span data-i18n="contact.b2bButton">Consultá por Servicios B2B</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -989,6 +992,12 @@ app.get('/', (c) => {
             // Toggle between Spanish and English widgets
             const spanishWidget = document.querySelector('.widget-spanish');
             const englishWidget = document.querySelector('.widget-english');
+            
+            // Update B2B button link based on language
+            const b2bButton = document.getElementById('b2b-button');
+            if (b2bButton) {
+                b2bButton.href = lang === 'en' ? '/commercial-dossier-en.html' : '/dossier-comercial-es.html';
+            }
             
             if (lang === 'en') {
                 if (spanishWidget) spanishWidget.classList.add('hidden');
