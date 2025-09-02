@@ -249,25 +249,30 @@ app.get('/', (c) => {
             <!-- Gradient Overlay -->
             <div class="hero-gradient absolute inset-0 z-20"></div>
             
-            <!-- Hero Image Background HD -->
-            <div class="absolute inset-0 z-10 overflow-hidden">
-                <picture>
-                    <source srcset="https://raw.githubusercontent.com/abeckervico-dev/portada/main/6.jpg" type="image/jpeg">
-                    <img src="https://raw.githubusercontent.com/abeckervico-dev/portada/main/6.jpg" 
-                         alt="Packrafting El Chaltén - Vista espectacular del Fitz Roy" 
-                         class="absolute inset-0 w-full h-full"
-                         loading="eager"
-                         fetchpriority="high"
-                         style="object-fit: cover; 
-                                object-position: center; 
-                                width: 100%; 
-                                height: 100%; 
-                                max-width: none;
-                                image-rendering: high-quality;
-                                image-rendering: -moz-crisp-edges;
-                                image-rendering: -webkit-optimize-contrast;
-                                transform: scale(1.02);">
-                </picture>
+            <!-- Hero Video Background from YouTube -->
+            <div class="absolute inset-0 z-10 overflow-hidden bg-black">
+                <!-- YouTube Video Embed - PENDIENTE: Reemplazar VIDEO_ID con el ID real del video -->
+                <div class="absolute inset-0 w-full h-full">
+                    <iframe 
+                        id="hero-video"
+                        src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&playlist=VIDEO_ID"
+                        class="absolute inset-0 w-full h-full"
+                        style="width: 100vw; 
+                               height: 56.25vw; 
+                               min-height: 100vh; 
+                               min-width: 177.77vh;
+                               position: absolute;
+                               top: 50%;
+                               left: 50%;
+                               transform: translate(-50%, -50%) scale(1.1);"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <!-- Overlay oscuro para mejorar legibilidad del texto -->
+                <div class="absolute inset-0 bg-black/50 z-10"></div>
             </div>
         </div>
         
