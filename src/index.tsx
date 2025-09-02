@@ -252,9 +252,9 @@ app.get('/', (c) => {
             <!-- Hero Image Background HD -->
             <div class="absolute inset-0 z-10 overflow-hidden">
                 <picture>
-                    <source srcset="https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce" type="image/jpeg">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce" 
-                         alt="Packrafting El Chaltén - Grupo preparándose para la aventura" 
+                    <source srcset="https://raw.githubusercontent.com/abeckervico-dev/portada/main/6.jpg" type="image/jpeg">
+                    <img src="https://raw.githubusercontent.com/abeckervico-dev/portada/main/6.jpg" 
+                         alt="Packrafting El Chaltén - Vista espectacular del Fitz Roy" 
                          class="absolute inset-0 w-full h-full"
                          loading="eager"
                          fetchpriority="high"
