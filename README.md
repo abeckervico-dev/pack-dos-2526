@@ -11,9 +11,9 @@
 - Copy de marketing enfocado en experiencia auténtica patagónica
 
 ## URLs de Acceso
-- **Producción**: https://hikingtour.tur.ar ✅ (ACTIVO)
+- **Producción**: https://hikingtour.tur.ar (pendiente DNS)
 - **Cloudflare Pages**: https://packrafting-elchalten.pages.dev ✅
-- **GitHub**: https://github.com/[usuario]/packrafting-elchalten (pendiente)
+- **GitHub**: https://github.com/abeckervico-dev/Dosier-2025 ✅
 
 ## Arquitectura de Datos
 - **Modelo de datos**: Website estático con contenido dinámico vía JavaScript
@@ -29,9 +29,10 @@
    - Grid responsivo de imágenes
 4. **Reseñas reales de Google**: Integradas del perfil de Hiking Tour El Chaltén
 5. **Servicios B2B**: 
-   - Dossiers comerciales bilingües integrados
-   - Enlaces dinámicos según idioma seleccionado
+   - Dossiers comerciales bilingües con redirects a documentos externos
+   - Enlaces dinámicos según idioma seleccionado (/dossier-es y /dossier-en)
    - Apertura en nueva pestaña para experiencia fluida
+   - Integración con GitHub repository Dosier-2025
 6. **Diseño responsive**: Optimizado para todos los dispositivos
 7. **Navegación suave**: Scroll smooth entre secciones
 8. **Información actualizada**: 
@@ -49,8 +50,8 @@
 - `/#gallery` - Galería multimedia
 - `/#faq` - Preguntas frecuentes
 - `/#contact` - Información de contacto
-- `/dossier-comercial-es.html` - Dossier comercial B2B en español
-- `/commercial-dossier-en.html` - Commercial dossier B2B in English
+- `/dossier-es` - Dossier comercial B2B en español (redirect a documento externo)
+- `/dossier-en` - Commercial dossier B2B in English (redirect to external document)
 
 ### API Endpoints
 - `/api/translations/es` - Traducciones en español
@@ -115,6 +116,7 @@
 - **Estado**: ✅ ACTIVO EN PRODUCCIÓN
 - **Dominio personalizado**: hikingtour.tur.ar (DNS propagado)
 - **Última actualización**: 02/09/2025
+- **GitHub Repository**: abeckervico-dev/Dosier-2025
 
 ## Notas Técnicas
 - Widget Turitop configurado con company="H407" y service="P2"
