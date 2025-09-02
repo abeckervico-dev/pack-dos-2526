@@ -12,9 +12,6 @@ app.use('/api/*', cors())
 app.use('/static/*', serveStatic({ root: './public' }))
 app.use('/favicon.ico', serveStatic({ path: './public/favicon.ico' }))
 
-// Serve all public files including B2B dossiers
-app.use('/*', serveStatic({ root: './public' }))
-
 // API endpoint for contact form
 app.post('/api/contact', async (c) => {
   const body = await c.req.json()
@@ -896,7 +893,7 @@ app.get('/', (c) => {
                             <span data-i18n="contact.b2bTitle">Servicios B2B</span>
                         </h4>
 
-                        <a href="/dossier-comercial-es.html" 
+                        <a href="https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/eeb25a27-7fe2-4d58-bff5-ffb1c80454f8" 
                            target="_blank" 
                            rel="noopener"
                            id="b2b-button"
@@ -999,7 +996,9 @@ app.get('/', (c) => {
             // Update B2B button link based on language
             const b2bButton = document.getElementById('b2b-button');
             if (b2bButton) {
-                b2bButton.href = lang === 'en' ? '/commercial-dossier-en.html' : '/dossier-comercial-es.html';
+                b2bButton.href = lang === 'en' 
+                    ? 'https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/30f3461e-aa71-4b4f-817f-a657cb972a83'
+                    : 'https://page.gensparksite.com/get_upload_url/a73915a0384c4aa8dc21bda3b0b378699830a8942f7f06e714ba3195ec5bc669/default/eeb25a27-7fe2-4d58-bff5-ffb1c80454f8';
             }
             
             if (lang === 'en') {
