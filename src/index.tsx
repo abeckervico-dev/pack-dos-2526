@@ -3,7 +3,11 @@ import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { translations } from './i18n/translations'
 
-const app = new Hono()
+type Bindings = {
+  RESEND_API_KEY?: string
+}
+
+const app = new Hono<{ Bindings: Bindings }>()
 
 // Enable CORS
 app.use('/api/*', cors())
@@ -39,13 +43,17 @@ app.post('/api/contact', async (c) => {
       <p><small>Este mensaje fue enviado desde el formulario de contacto de hikingtour.tur.ar</small></p>
     `
 
-    // For now, since we don't have the Resend API key configured,
-    // we'll store the message and return success
-    // In production, you would send this using Resend API
+    // Send email using Resend API
+    const RESEND_API_KEY = c.env.RESEND_API_KEY
     
-    // TODO: When you have a Resend API key, uncomment this code:
-    /*
-    const RESEND_API_KEY = c.env.RESEND_API_KEY // Add this to wrangler secrets
+    if (!RESEND_API_KEY) {
+      // Fallback if API key is not configured
+      console.log('Contact form submission (no API key):', { name, email, phone, date, people, message })
+      return c.json({ 
+        success: true, 
+        message: 'Gracias por tu consulta. Te responderemos a la brevedad.' 
+      })
+    }
     
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -54,7 +62,7 @@ app.post('/api/contact', async (c) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`
       },
       body: JSON.stringify({
-        from: 'Packrafting El Chaltén <noreply@hikingtour.tur.ar>',
+        from: 'Packrafting El Chaltén <onboarding@resend.dev>',
         to: 'contacto@hikingtour.tur.ar',
         subject: `Nueva consulta de ${name} - Packrafting El Chaltén`,
         html: emailContent,
@@ -63,12 +71,13 @@ app.post('/api/contact', async (c) => {
     })
     
     if (!resendResponse.ok) {
+      const errorData = await resendResponse.text()
+      console.error('Resend API error:', errorData)
       throw new Error('Error al enviar el email')
     }
-    */
     
-    // Log the submission for now
-    console.log('Contact form submission:', { name, email, phone, date, people, message })
+    // Log successful submission
+    console.log('Email sent successfully to contacto@hikingtour.tur.ar')
     
     return c.json({ 
       success: true, 
