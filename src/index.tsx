@@ -14,16 +14,73 @@ app.use('/favicon.ico', serveStatic({ path: './public/favicon.ico' }))
 
 // API endpoint for contact form
 app.post('/api/contact', async (c) => {
-  const body = await c.req.json()
-  
-  // Here you would integrate with an email service
-  // For now, we'll just return success
-  console.log('Contact form submission:', body)
-  
-  return c.json({ 
-    success: true, 
-    message: 'Mensaje enviado correctamente / Message sent successfully' 
-  })
+  try {
+    const { name, email, phone, date, people, message } = await c.req.json()
+    
+    // Validate required fields
+    if (!name || !email || !message) {
+      return c.json({ 
+        success: false, 
+        message: 'Por favor complete todos los campos requeridos' 
+      }, 400)
+    }
+
+    // Format the email content
+    const emailContent = `
+      <h2>Nueva consulta desde Packrafting El Chaltén</h2>
+      <p><strong>Nombre:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      ${phone ? `<p><strong>Teléfono:</strong> ${phone}</p>` : ''}
+      ${date ? `<p><strong>Fecha deseada:</strong> ${date}</p>` : ''}
+      ${people ? `<p><strong>Número de personas:</strong> ${people}</p>` : ''}
+      <p><strong>Mensaje:</strong></p>
+      <p>${message.replace(/\n/g, '<br>')}</p>
+      <hr>
+      <p><small>Este mensaje fue enviado desde el formulario de contacto de hikingtour.tur.ar</small></p>
+    `
+
+    // For now, since we don't have the Resend API key configured,
+    // we'll store the message and return success
+    // In production, you would send this using Resend API
+    
+    // TODO: When you have a Resend API key, uncomment this code:
+    /*
+    const RESEND_API_KEY = c.env.RESEND_API_KEY // Add this to wrangler secrets
+    
+    const resendResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`
+      },
+      body: JSON.stringify({
+        from: 'Packrafting El Chaltén <noreply@hikingtour.tur.ar>',
+        to: 'contacto@hikingtour.tur.ar',
+        subject: `Nueva consulta de ${name} - Packrafting El Chaltén`,
+        html: emailContent,
+        reply_to: email
+      })
+    })
+    
+    if (!resendResponse.ok) {
+      throw new Error('Error al enviar el email')
+    }
+    */
+    
+    // Log the submission for now
+    console.log('Contact form submission:', { name, email, phone, date, people, message })
+    
+    return c.json({ 
+      success: true, 
+      message: 'Gracias por tu consulta. Te responderemos a la brevedad.' 
+    })
+  } catch (error) {
+    console.error('Error processing contact form:', error)
+    return c.json({ 
+      success: false, 
+      message: 'Hubo un error al enviar tu mensaje. Por favor intenta nuevamente.' 
+    }, 500)
+  }
 })
 
 // API endpoint for translations
@@ -1125,6 +1182,48 @@ app.get('/', (c) => {
         
         // Initialize
         loadTranslations(currentLang);
+        
+        // Contact form handler
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Enviando...';
+                submitButton.disabled = true;
+                
+                try {
+                    const formData = new FormData(contactForm);
+                    const data = Object.fromEntries(formData.entries());
+                    
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        // Show success message
+                        alert(result.message || 'Gracias por tu consulta. Te responderemos a la brevedad.');
+                        contactForm.reset();
+                    } else {
+                        alert(result.message || 'Error al enviar el mensaje. Por favor intenta nuevamente.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Error al enviar el mensaje. Por favor intenta nuevamente o contactanos por WhatsApp.');
+                } finally {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }
+            });
+        }
         
         // Instagram Feed Integration
         if (typeof Instafeed !== 'undefined') {
