@@ -31,16 +31,34 @@ app.post('/api/contact', async (c) => {
 
     // Format the email content
     const emailContent = `
-      <h2>Nueva consulta desde Packrafting El Chaltén</h2>
-      <p><strong>Nombre:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      ${phone ? `<p><strong>Teléfono:</strong> ${phone}</p>` : ''}
-      ${date ? `<p><strong>Fecha deseada:</strong> ${date}</p>` : ''}
-      ${people ? `<p><strong>Número de personas:</strong> ${people}</p>` : ''}
-      <p><strong>Mensaje:</strong></p>
-      <p>${message.replace(/\n/g, '<br>')}</p>
-      <hr>
-      <p><small>Este mensaje fue enviado desde el formulario de contacto de hikingtour.tur.ar</small></p>
+      <div style="background: #f5f5f5; padding: 20px;">
+        <div style="background: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #1a5490;">Nueva consulta desde Packrafting El Chaltén</h2>
+          
+          <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin: 20px 0;">
+            <strong>⚠️ IMPORTANTE:</strong> Este email llegó a abeckervico@gmail.com temporalmente.<br>
+            Una vez verificado el dominio, llegará directamente a contacto@hikingtour.tur.ar
+          </div>
+          
+          <p><strong>Nombre:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          ${phone ? `<p><strong>Teléfono:</strong> ${phone}</p>` : ''}
+          ${date ? `<p><strong>Fecha deseada:</strong> ${date}</p>` : ''}
+          ${people ? `<p><strong>Número de personas:</strong> ${people}</p>` : ''}
+          
+          <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <p><strong>Mensaje:</strong></p>
+            <p>${message.replace(/\n/g, '<br>')}</p>
+          </div>
+          
+          <hr style="margin: 20px 0; border: none; border-top: 1px solid #dee2e6;">
+          
+          <p style="color: #6c757d; font-size: 12px;">
+            Este mensaje fue enviado desde el formulario de contacto de hikingtour.tur.ar<br>
+            Responder directamente a: ${email}
+          </p>
+        </div>
+      </div>
     `
 
     // Send email using Resend API
@@ -63,7 +81,7 @@ app.post('/api/contact', async (c) => {
       },
       body: JSON.stringify({
         from: 'Packrafting El Chaltén <onboarding@resend.dev>',
-        to: 'contacto@hikingtour.tur.ar',
+        to: 'abeckervico@gmail.com', // Temporalmente usando tu Gmail hasta verificar dominio
         subject: `Nueva consulta de ${name} - Packrafting El Chaltén`,
         html: emailContent,
         reply_to: email
