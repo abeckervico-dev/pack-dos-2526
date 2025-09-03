@@ -35,11 +35,6 @@ app.post('/api/contact', async (c) => {
         <div style="background: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1a5490;">Nueva consulta desde Packrafting El Chaltén</h2>
           
-          <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin: 20px 0;">
-            <strong>⚠️ IMPORTANTE:</strong> Este email llegó a abeckervico@gmail.com temporalmente.<br>
-            Una vez verificado el dominio, llegará directamente a contacto@hikingtour.tur.ar
-          </div>
-          
           <p><strong>Nombre:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           ${phone ? `<p><strong>Teléfono:</strong> ${phone}</p>` : ''}
@@ -80,8 +75,8 @@ app.post('/api/contact', async (c) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`
       },
       body: JSON.stringify({
-        from: 'Packrafting El Chaltén <onboarding@resend.dev>',
-        to: 'abeckervico@gmail.com', // Temporalmente usando tu Gmail hasta verificar dominio
+        from: 'Packrafting El Chaltén <noreply@hikingtour.tur.ar>',
+        to: 'contacto@hikingtour.tur.ar',
         subject: `Nueva consulta de ${name} - Packrafting El Chaltén`,
         html: emailContent,
         reply_to: email
