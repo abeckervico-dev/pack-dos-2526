@@ -22,26 +22,27 @@ blog.get('/posts', async (c) => {
     const { DB } = c.env
     const page = parseInt(c.req.query('page') || '1')
     const limit = parseInt(c.req.query('limit') || '10')
+    const lang = c.req.query('lang') || 'es'
     const offset = (page - 1) * limit
 
     const posts = await DB.prepare(`
       SELECT 
         p.id, p.slug, p.title, p.subtitle, p.author, p.author_avatar,
         p.excerpt, p.featured_image, p.linkedin_url, p.views,
-        p.created_at, p.published_at,
+        p.created_at, p.published_at, p.language,
         GROUP_CONCAT(c.name) as categories
       FROM blog_posts p
       LEFT JOIN blog_post_categories pc ON p.id = pc.post_id
       LEFT JOIN blog_categories c ON pc.category_id = c.id
-      WHERE p.published = 1
+      WHERE p.published = 1 AND p.language = ?
       GROUP BY p.id
       ORDER BY p.published_at DESC
       LIMIT ? OFFSET ?
-    `).bind(limit, offset).all()
+    `).bind(lang, limit, offset).all()
 
     const totalResult = await DB.prepare(`
-      SELECT COUNT(*) as total FROM blog_posts WHERE published = 1
-    `).first()
+      SELECT COUNT(*) as total FROM blog_posts WHERE published = 1 AND language = ?
+    `).bind(lang).first()
 
     return c.json({
       posts: posts.results,
@@ -63,22 +64,24 @@ blog.get('/posts/:slug', async (c) => {
   try {
     const { DB } = c.env
     const slug = c.req.param('slug')
+    const lang = c.req.query('lang') || 'es'
 
     // Increment views
     await DB.prepare(`
-      UPDATE blog_posts SET views = views + 1 WHERE slug = ?
-    `).bind(slug).run()
+      UPDATE blog_posts SET views = views + 1 WHERE slug = ? AND language = ?
+    `).bind(slug, lang).run()
 
     const post = await DB.prepare(`
       SELECT 
         p.*,
-        GROUP_CONCAT(c.name) as categories
+        GROUP_CONCAT(c.name) as categories,
+        (SELECT slug FROM blog_posts WHERE id = p.translation_of OR translation_of = p.id AND language != p.language LIMIT 1) as translation_slug
       FROM blog_posts p
       LEFT JOIN blog_post_categories pc ON p.id = pc.post_id
       LEFT JOIN blog_categories c ON pc.category_id = c.id
-      WHERE p.slug = ? AND p.published = 1
+      WHERE p.slug = ? AND p.published = 1 AND p.language = ?
       GROUP BY p.id
-    `).bind(slug).first()
+    `).bind(slug, lang).first()
 
     if (!post) {
       return c.json({ error: 'Post not found' }, 404)

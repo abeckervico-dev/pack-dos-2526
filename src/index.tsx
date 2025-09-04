@@ -136,6 +136,7 @@ app.get('/blog', async (c) => {
 
 app.get('/blog/:slug', async (c) => {
   const slug = c.req.param('slug')
+  const lang = c.req.query('lang') || 'es'
   const { DB } = c.env
   
   if (!DB) {
@@ -145,8 +146,8 @@ app.get('/blog/:slug', async (c) => {
   try {
     // Increment views
     await DB.prepare(`
-      UPDATE blog_posts SET views = views + 1 WHERE slug = ?
-    `).bind(slug).run()
+      UPDATE blog_posts SET views = views + 1 WHERE slug = ? AND language = ?
+    `).bind(slug, lang).run()
 
     const post = await DB.prepare(`
       SELECT 
@@ -155,9 +156,9 @@ app.get('/blog/:slug', async (c) => {
       FROM blog_posts p
       LEFT JOIN blog_post_categories pc ON p.id = pc.post_id
       LEFT JOIN blog_categories c ON pc.category_id = c.id
-      WHERE p.slug = ? AND p.published = 1
+      WHERE p.slug = ? AND p.published = 1 AND p.language = ?
       GROUP BY p.id
-    `).bind(slug).first()
+    `).bind(slug, lang).first()
 
     if (!post) {
       return c.html('<h1>Post not found</h1>', 404)

@@ -54,10 +54,16 @@ export const blogListPage = `
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-patagonia-blue to-blue-700 text-white py-20">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Blog de Packrafting El Chaltén</h1>
-            <p class="text-xl max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4" id="blog-title">
+                Blog de Packrafting El Chaltén
+            </h1>
+            <p class="text-xl max-w-3xl mx-auto" id="blog-subtitle">
                 Descubre historias, consejos y guías sobre packrafting y aventuras en la Patagonia
             </p>
+            <div class="mt-6">
+                <button onclick="setLanguage('es')" class="lang-btn px-4 py-2 mx-2 rounded bg-white/20" data-lang="es">Español</button>
+                <button onclick="setLanguage('en')" class="lang-btn px-4 py-2 mx-2 rounded bg-white/20" data-lang="en">English</button>
+            </div>
         </div>
     </section>
 
@@ -108,11 +114,14 @@ export const blogListPage = `
     </footer>
 
     <script>
+        // Get current language from localStorage or default to Spanish
+        let currentLang = localStorage.getItem('language') || 'es';
+        
         // Function to format date
         function formatDate(dateString) {
             const date = new Date(dateString);
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return date.toLocaleDateString('es-ES', options);
+            return date.toLocaleDateString(currentLang === 'en' ? 'en-US' : 'es-ES', options);
         }
 
         // Function to create blog card
@@ -155,7 +164,7 @@ export const blogListPage = `
         // Load blog posts
         async function loadBlogPosts(page = 1) {
             try {
-                const response = await fetch(\`/api/blog/posts?page=\${page}&limit=9\`);
+                const response = await fetch(\`/api/blog/posts?page=\${page}&limit=9&lang=\${currentLang}\`);
                 const data = await response.json();
                 
                 const container = document.getElementById('blog-posts');
@@ -197,9 +206,52 @@ export const blogListPage = `
             }
         }
 
+        // Set language
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update UI texts
+            const translations = {
+                es: {
+                    title: 'Blog de Packrafting El Chaltén',
+                    subtitle: 'Descubre historias, consejos y guías sobre packrafting y aventuras en la Patagonia',
+                    loading: 'Cargando artículos...',
+                    noArticles: 'No hay artículos disponibles en este momento.',
+                    readMore: 'Leer más →',
+                    newsletter: 'Suscríbete a nuestro Newsletter',
+                    newsletterDesc: 'Recibe las últimas noticias y consejos sobre packrafting',
+                    subscribe: 'Suscribirse'
+                },
+                en: {
+                    title: 'Packrafting El Chaltén Blog',
+                    subtitle: 'Discover stories, tips and guides about packrafting and adventures in Patagonia',
+                    loading: 'Loading articles...',
+                    noArticles: 'No articles available at this time.',
+                    readMore: 'Read more →',
+                    newsletter: 'Subscribe to our Newsletter',
+                    newsletterDesc: 'Get the latest news and tips about packrafting',
+                    subscribe: 'Subscribe'
+                }
+            };
+            
+            const t = translations[lang];
+            document.getElementById('blog-title').textContent = t.title;
+            document.getElementById('blog-subtitle').textContent = t.subtitle;
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('bg-white/40', btn.dataset.lang === lang);
+                btn.classList.toggle('bg-white/20', btn.dataset.lang !== lang);
+            });
+            
+            // Reload posts
+            loadBlogPosts();
+        }
+        
         // Load posts on page load
         document.addEventListener('DOMContentLoaded', () => {
-            loadBlogPosts();
+            setLanguage(currentLang);
         });
     </script>
 </body>
