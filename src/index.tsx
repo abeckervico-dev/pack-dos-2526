@@ -2,15 +2,20 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { translations } from './i18n/translations'
+import blog from './api/blog'
 
 type Bindings = {
   RESEND_API_KEY?: string
+  DB?: any
 }
 
 const app = new Hono<{ Bindings: Bindings }>()
 
 // Enable CORS
 app.use('/api/*', cors())
+
+// Mount blog API routes
+app.route('/api/blog', blog)
 
 // Serve static files
 app.use('/static/*', serveStatic({ root: './public' }))
@@ -121,6 +126,54 @@ app.get('/dossier-es', (c) => {
 // Serve B2B Dossier in English - GitHub Pages
 app.get('/dossier-en', (c) => {
   return c.redirect('https://abeckervico-dev.github.io/pack-dos-2526/Commercial%20Dossier%20-%20Packrafting%20El%20Chalt%C3%A9n%20ingles.htm')
+})
+
+// Blog routes
+app.get('/blog', async (c) => {
+  const { blogListPage } = await import('./pages/blog')
+  return c.html(blogListPage)
+})
+
+app.get('/blog/:slug', async (c) => {
+  const slug = c.req.param('slug')
+  const { DB } = c.env
+  
+  if (!DB) {
+    return c.html('<h1>Database not configured</h1>', 500)
+  }
+  
+  try {
+    // Increment views
+    await DB.prepare(`
+      UPDATE blog_posts SET views = views + 1 WHERE slug = ?
+    `).bind(slug).run()
+
+    const post = await DB.prepare(`
+      SELECT 
+        p.*,
+        GROUP_CONCAT(c.name) as categories
+      FROM blog_posts p
+      LEFT JOIN blog_post_categories pc ON p.id = pc.post_id
+      LEFT JOIN blog_categories c ON pc.category_id = c.id
+      WHERE p.slug = ? AND p.published = 1
+      GROUP BY p.id
+    `).bind(slug).first()
+
+    if (!post) {
+      return c.html('<h1>Post not found</h1>', 404)
+    }
+
+    // Parse images JSON
+    if (post.images) {
+      post.images = JSON.parse(post.images as string)
+    }
+
+    const { blogPostPage } = await import('./pages/blog')
+    return c.html(blogPostPage(post))
+  } catch (error) {
+    console.error('Error fetching blog post:', error)
+    return c.html('<h1>Error loading post</h1>', 500)
+  }
 })
 
 // Main HTML route
@@ -276,6 +329,7 @@ app.get('/', (c) => {
                     <a href="#experience" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.experience">Experiencia</a>
                     <a href="#safety" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.safety">Seguridad</a>
                     <a href="#gallery" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.gallery">Galería</a>
+                    <a href="/blog" class="nav-link text-gray-700 hover:text-patagonia-blue transition">Blog</a>
                     <a href="#faq" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.faq">FAQ</a>
                     <a href="#contact" class="nav-link text-gray-700 hover:text-patagonia-blue transition" data-i18n="nav.contact">Contacto</a>
                     
@@ -307,6 +361,7 @@ app.get('/', (c) => {
                 <a href="#experience" class="block py-2 text-gray-700" data-i18n="nav.experience">Experiencia</a>
                 <a href="#safety" class="block py-2 text-gray-700" data-i18n="nav.safety">Seguridad</a>
                 <a href="#gallery" class="block py-2 text-gray-700" data-i18n="nav.gallery">Galería</a>
+                <a href="/blog" class="block py-2 text-gray-700">Blog</a>
                 <a href="#faq" class="block py-2 text-gray-700" data-i18n="nav.faq">FAQ</a>
                 <a href="#contact" class="block py-2 text-gray-700" data-i18n="nav.contact">Contacto</a>
                 <div class="flex space-x-2 py-2">
