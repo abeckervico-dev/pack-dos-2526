@@ -3,6 +3,7 @@ import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { translations } from './i18n/translations'
 import blog from './api/blog'
+import blogAdmin from './api/blog-admin'
 
 type Bindings = {
   RESEND_API_KEY?: string
@@ -16,6 +17,7 @@ app.use('/api/*', cors())
 
 // Mount blog API routes
 app.route('/api/blog', blog)
+app.route('/api/blog-admin', blogAdmin)
 
 // Serve static files
 app.use('/static/*', serveStatic({ root: './public' }))
