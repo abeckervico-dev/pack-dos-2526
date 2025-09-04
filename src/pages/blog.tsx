@@ -51,9 +51,11 @@ export const blogListPage = `
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-patagonia-blue to-blue-700 text-white py-20">
-        <div class="container mx-auto px-4 text-center">
+    <!-- Hero Section with Background Image -->
+    <section class="relative h-96 bg-cover bg-center" style="background-image: url('https://page.gensparksite.com/v1/base64_upload/f8c05b7c6479a64823f393c4a474d1ce');">
+        <div class="absolute inset-0 bg-gradient-to-r from-patagonia-blue/80 to-blue-700/80"></div>
+        <div class="relative h-full flex items-center justify-center">
+            <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4" id="blog-title">
                 Blog de Packrafting El Chaltén
             </h1>
@@ -63,6 +65,7 @@ export const blogListPage = `
             <div class="mt-6">
                 <button onclick="setLanguage('es')" class="lang-btn px-4 py-2 mx-2 rounded bg-white/20" data-lang="es">Español</button>
                 <button onclick="setLanguage('en')" class="lang-btn px-4 py-2 mx-2 rounded bg-white/20" data-lang="en">English</button>
+            </div>
             </div>
         </div>
     </section>
